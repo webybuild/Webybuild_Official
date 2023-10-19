@@ -161,7 +161,7 @@ function Nav() {
                 variant="outlined"
                 startIcon={<PersonSearchRounded sx={{ marginBottom: "3px" }} />}
                 sx={{
-                  color: isAboutPage() ? "#ab4c8a" : "#000000",
+                  color: isAboutPage() ? "#ab4c8a" : "#787878",
                   border: "none",
                   justifyContent: "center",
 
@@ -181,7 +181,7 @@ function Nav() {
                 variant="outlined"
                 startIcon={<LayersIcon />}
                 sx={{
-                  color: isServicesPage() ? "#ab4c8a" : "#000000",
+                  color: isServicesPage() ? "#ab4c8a" : "#787878",
                   border: "none",
                   "&:hover": {
                     color: "#ab4c8a",
@@ -254,7 +254,7 @@ function Nav() {
                       <ListItemIcon>{icon}</ListItemIcon>
                       <Typography
                         variant="subtitle1"
-                        color="#000000"
+                        color="#787878"
                         fontSize="14px"
                       >
                         {text}
@@ -306,7 +306,7 @@ function Nav() {
                 }}
                 variant="outlined"
                 sx={{
-                  color: isContactPage() ? "#ab4c8a" : "#000000",
+                  color: isContactPage() ? "#ab4c8a" : "#787878",
                   border: "none",
                   justifyContent: "center",
 

@@ -1,5 +1,13 @@
 import React from "react";
 import logo from "../assets/images/logo/newLogo.png";
+import { Link } from "react-router-dom";
+import linkedin from "../assets/images/social/skill-icons_linkedin.svg";
+import facebook from "../assets/images/social/logos_facebook.svg";
+import instagram from "../assets/images/social/skill-icons_instagram.svg";
+import twitter from "../assets/images/social/fa6-brands_square-x-twitter.svg";
+import pinterst from "../assets/images/social/logos_pinterest.svg";
+import support from "../assets/images/Shapes/support.svg";
+import cloud from "../assets/images/footer/cloud.svg";
 
 const Footer = () => {
   return (
@@ -30,124 +38,112 @@ const Footer = () => {
               businesses.
             </p>
           </div>
-          <nav className="col-span-1 md:col-span-1 lg:col-span-2">
-            <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
+          <nav className="col-span-1 md:col-span-1 lg:col-span-3">
+            <p className="mb-3 text-sm font-semibold tracking-widest text-gray-400 uppercase">
               Company
             </p>
-            <a
-              href="/"
-              className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
+            <Link
+              to="/"
+              className="flex mb-3 text-sm font-normal tracking-widest text-black transition md:mb-2 text_effect"
             >
-              Company
-            </a>
-            <a
-              href="/"
-              className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
+              Home
+            </Link>
+            <Link
+              to="/about"
+              className="flex mb-3 text-sm font-normal tracking-widest text-black transition md:mb-2 text_effect"
             >
-              Integrations
-            </a>
-            <a
-              href="/"
-              className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
-            >
-              Documentation
-            </a>
-            <a
-              href="/"
-              className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
-            >
-              FAQs
-            </a>
-            <a
-              href="/"
-              className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
-            >
-              Pricing
-            </a>
-          </nav>
-          <nav className="col-span-1 md:col-span-1 lg:col-span-2">
-            <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
               About
+            </Link>
+
+            <Link
+              to="/blog"
+              className="flex mb-3 text-sm font-normal tracking-widest text-black transition md:mb-2 text_effect"
+            >
+              Blogs
+            </Link>
+            <Link
+              to="/growth"
+              className="flex mb-3 text-sm font-normal tracking-widest text-black transition md:mb-2 text_effect"
+            >
+              Growth
+            </Link>
+            <Link
+              to="/contacts"
+              className="flex mb-3 text-sm font-normal tracking-widest transition md:mb-2 text_effect"
+            >
+              Contacts
+            </Link>
+          </nav>
+          <nav className="col-span-1 md:col-span-1 lg:col-span-3">
+            <p className="mb-3 text-sm font-semibold tracking-wider text-gray-400 uppercase">
+              Services
             </p>
+            <Link
+              to="/services/web-design"
+              className="flex mb-3 text-sm font-normal tracking-widest text-black transition md:mb-2 text_effect"
+            >
+              Website Design
+            </Link>
             <a
               href="/"
-              className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
+              className="flex mb-3 text-sm font-normal tracking-widest text-black transition md:mb-2 text_effect"
             >
-              Press-Kit
+              Custom Web Development
             </a>
             <a
               href="/"
-              className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
+              className="flex mb-3 text-sm font-normal tracking-widest text-black transition md:mb-2 text_effect"
             >
-              Company
+              Inventory Management
             </a>
             <a
               href="/"
-              className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
+              className="flex mb-3 text-sm font-normal tracking-widest text-black transition md:mb-2 text_effect"
             >
-              Privacy
+              Cloud Services
             </a>
+            <Link
+              to="/services/logo-design"
+              className="flex mb-3 text-sm font-normal tracking-widest text-black transition md:mb-2 text_effect"
+            >
+              Logo Design
+            </Link>
             <a
               href="/"
-              className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
+              className="flex mb-3 text-sm font-normal tracking-widest text-black transition md:mb-2 text_effect"
             >
-              Blog
+              Seo and Digital Marketing
             </a>
           </nav>
-          {/* <nav className="col-span-2 md:col-span-1 lg:col-span-2">
-            <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
-              Contact
-            </p>
-            <a
-              href="/"
-              className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
-            >
-              Twitter
-            </a>
-            <a
-              href="/"
-              className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
-            >
-              Instagram
-            </a>
-            <a
-              href="/"
-              className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
-            >
-              Email
-            </a>
-            <a
-              href="/"
-              className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
-            >
-              Advertising
-            </a>
-            <a
-              href="/"
-              className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
-            >
-              Chat
-            </a>
-          </nav> */}
+
           <div className="col-span-3">
-            <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
-              SUBSCRIBE TO OUR NEWSLETTER
+            <p className="mb-3 text-sm font-semibold tracking-wider text-gray-400 uppercase">
+              Get in Touch
             </p>
-            <form action="#" className="mb-2">
-              <div className="form-append">
-                <input
-                  className="form-input form-input-sm"
-                  type="email"
-                  placeholder="Enter your email"
-                />
-                <button className="btn btn-light-primary btn-sm" type="submit">
-                  Subscribe
-                </button>
+            <div className="my-4">
+              <div className="flex items-center gap-2">
+                <img src={support} alt="" />
+                <h1 className="text-gray-500">hello@webybuild.com</h1>
               </div>
-            </form>
-            <p className="text-xs leading-normal text-gray-500">
-              Get lessons and insights on how to grow your freelance business.
-            </p>
+            </div>
+            <div className="my-4">
+              <div className="flex items-center gap-2">
+                <img src={cloud} alt="" />
+                <h1 className="font-light">
+                  USA, Canada, Germany, Australia, Switzerland, Ireland
+                </h1>
+              </div>
+            </div>
+            <div className="">
+              <h1 className="font-bold my-4">Follow Us</h1>
+              <div className="flex gap-3">
+                <img src={linkedin} alt="" />
+                <img src={facebook} alt="" />
+                <img src={instagram} alt="" />
+                <img src={twitter} alt="" />
+                <img src={pinterst} alt="" />
+              </div>
+            </div>
           </div>
         </div>
         <div className="flex flex-col items-start justify-between pt-10 mt-10 border-t border-gray-100 md:flex-row md:items-center">
@@ -157,13 +153,13 @@ const Footer = () => {
           <div className="flex items-start justify-start space-x-6 md:items-center md:justify-center">
             <a
               href="/"
-              className="text-sm text-gray-600 transition hover:text-primary"
+              className="text-sm text-gray-600 transition text_effect"
             >
               Terms
             </a>
             <a
               href="/"
-              className="text-sm text-gray-600 transition hover:text-primary"
+              className="text-sm text-gray-600 transition text_effect"
             >
               Privacy
             </a>
