@@ -5,14 +5,6 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import healthcare from "../assets/images/IndustriesImg/health2.png";
-import education from "../assets/images/IndustriesImg/education.png";
-import media from "../assets/images/IndustriesImg/media2.png";
-import log from "../assets/images/IndustriesImg/log2.png";
-import realestate from "../assets/images/IndustriesImg/realestate2.png";
-import finance from "../assets/images/IndustriesImg/finance.jpg";
-import software from "../assets/images/IndustriesImg/software.jpg";
-import hospitality from "../assets/images/IndustriesImg/hospitality.png";
 import Slide from "@mui/material/Slide";
 import GetInTouch from "./GetInTouch";
 import HeadTitle from "./HeadTitle";
@@ -178,7 +170,7 @@ export default function ResponsiveVerticalTabs() {
                 <div className="flex-1">
                   <img
                     className="w-full h-full border drop-shadow-md"
-                    src={education}
+                    src="https://dl.dropboxusercontent.com/scl/fi/hl8z3tx5c255tnevrk5dr/education.png?rlkey=b8ayhq6lcyl00y7ugy1yw0hb3&dl=0"
                     alt=""
                     srcset=""
                   />
@@ -206,7 +198,7 @@ export default function ResponsiveVerticalTabs() {
                 <div className="flex-1">
                   <img
                     className="w-full h-full border drop-shadow-md"
-                    src={healthcare}
+                    src="https://dl.dropboxusercontent.com/scl/fi/35tpfxjscukoomhzpu55y/health2.png?rlkey=jvl61ahqpas9lyq54nfih6pn1&dl=0"
                     alt=""
                     srcset=""
                   />
@@ -233,7 +225,7 @@ export default function ResponsiveVerticalTabs() {
                 <div className="flex-1">
                   <img
                     className="w-full h-full border drop-shadow-md"
-                    src={software}
+                    src="https://dl.dropboxusercontent.com/scl/fi/1mekgxd5r31juaf2f1gq3/software.jpg?rlkey=d2clg3bvpkd72mhnpm4fqnhlf&dl=0"
                     alt=""
                     srcset=""
                   />
@@ -262,7 +254,7 @@ export default function ResponsiveVerticalTabs() {
                 <div className="flex-1">
                   <img
                     className="w-full h-full border drop-shadow-md"
-                    src={realestate}
+                    src="https://dl.dropboxusercontent.com/scl/fi/zgrynhmg6df5lduay3ohk/realestate2.png?rlkey=cq7cbqpg58q95w7ncafozml9u&dl=0"
                     alt=""
                     srcset=""
                   />
@@ -291,7 +283,7 @@ export default function ResponsiveVerticalTabs() {
                 <div className="flex-1">
                   <img
                     className="w-full h-full border drop-shadow-md"
-                    src={finance}
+                    src="https://dl.dropboxusercontent.com/scl/fi/b1o2rkoxbenxjxdksvgpf/finance.jpg?rlkey=lfwqrbe2wdq1ci307vlhygj8o&dl=0"
                     alt=""
                     srcset=""
                   />
@@ -320,7 +312,7 @@ export default function ResponsiveVerticalTabs() {
                 <div className="flex-1">
                   <img
                     className="w-full h-full border drop-shadow-md"
-                    src={log}
+                    src="https://dl.dropboxusercontent.com/scl/fi/m3dzsdwqalyehqihdtgd0/log2.png?rlkey=srtjmj8ny5t4lpdn7rw0jgyn3&dl=0"
                     alt=""
                     srcset=""
                   />
@@ -349,7 +341,7 @@ export default function ResponsiveVerticalTabs() {
                 <div className="flex-1">
                   <img
                     className="w-full h-full border drop-shadow-md"
-                    src={media}
+                    src="https://dl.dropboxusercontent.com/scl/fi/v41vncj5wowmog0o2639i/media2.png?rlkey=mdp0kt3jyemnfpx3r7q0rs8ue&dl=0"
                     alt=""
                     srcset=""
                   />
@@ -377,7 +369,7 @@ export default function ResponsiveVerticalTabs() {
                 <div className="flex-1">
                   <img
                     className="w-full h-full border drop-shadow-md"
-                    src={hospitality}
+                    src="https://dl.dropboxusercontent.com/scl/fi/fvnex18zre6dttpuhjagh/hospitality.png?rlkey=f79rc8khvpbr8brlsl98m4br6&dl=0"
                     alt=""
                     srcset=""
                   />
