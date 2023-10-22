@@ -6,7 +6,7 @@ import facebook from "../assets/images/social/logos_facebook.svg";
 import instagram from "../assets/images/social/skill-icons_instagram.svg";
 import twitter from "../assets/images/social/fa6-brands_square-x-twitter.svg";
 import pinterst from "../assets/images/social/logos_pinterest.svg";
-import support from "../assets/images/Shapes/support.svg";
+import support from "../assets/images/footer/arcticons_mail.svg";
 import cloud from "../assets/images/footer/cloud.svg";
 
 const Footer = () => {
@@ -17,9 +17,9 @@ const Footer = () => {
           Build Smarter. Better. Faster. Websites
         </h1>
         <div className="grid grid-cols-2 gap-10 mb-3 md:grid-cols-3 lg:grid-cols-12 lg:gap-20">
-          <div className="col-span-3">
+          <div className="col-span-4">
             <a
-              className="flex gap-1 justify-center items-center"
+              className="flex gap-1 justify-center items-center w-9/12"
               href="/"
               title="Webybuild"
             >
@@ -35,13 +35,16 @@ const Footer = () => {
                 </p>
               </div>
             </a>
-            <p className="my-4 text-sm leading-normal text-gray-500">
-              Webybuild is a dynamic web development company specializing in
-              creating high-quality websites that elevate our clients'
-              businesses.
+            <p className="my-4 text-sm leading-normal text-justify text-gray-500">
+              Webybuild is a dynamic and innovative web development company with
+              a strong focus on delivering high-quality websites that make a
+              significant impact on our clients businesses. Our team is
+              passionate about leveraging the latest technologies and design
+              trends to create bespoke web solutions that not only meet but
+              exceed our clients expectations.
             </p>
           </div>
-          <nav className="col-span-1 md:col-span-1 lg:col-span-3 mt-4">
+          <nav className="col-span-1 md:col-span-1 lg:col-span-2 mt-4">
             <p className="mb-3 text-sm font-semibold tracking-widest text-gray-400 uppercase">
               Company
             </p>
@@ -139,12 +142,42 @@ const Footer = () => {
             </div>
             <div className="">
               <h1 className="font-bold my-4">Follow Us</h1>
-              <div className="flex gap-3">
-                <img src={linkedin} alt="" />
-                <img src={facebook} alt="" />
-                <img src={instagram} alt="" />
-                <img src={twitter} alt="" />
-                <img src={pinterst} alt="" />
+              <div className="flex gap-3 items-center">
+                <a
+                  href="https://www.linkedin.com/in/harsh-j-b509b4172/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={linkedin} alt="twitter" />
+                </a>
+                <a
+                  href="https://twitter.com/WEBYBUILD"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={twitter} alt="twitter" />
+                </a>
+                <a
+                  href="https://www.facebook.com/webybuild"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={facebook} alt="twitter" />
+                </a>
+                <a
+                  href="https://in.pinterest.com/webybuild/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={pinterst} alt="twitter" />
+                </a>
+                <a
+                  href="https://www.instagram.com/webybuild/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={instagram} alt="twitter" />
+                </a>
               </div>
             </div>
           </div>

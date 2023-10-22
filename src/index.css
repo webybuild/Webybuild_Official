@@ -164,7 +164,7 @@ a {
 }
 
 .bg-landing-gradiant {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.704), rgba(255, 255, 255, 0.9)), url('./assets/images/Web-Interface/compressedLanding.png');
+  background-image: linear-gradient(rgba(255, 255, 255, 0.774), rgba(255, 255, 255, 0.9)), url('./assets/images/Web-Interface/compressedLanding.png');
   background-size: cover;
 
 }

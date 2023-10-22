@@ -51,10 +51,9 @@ const Header = () => {
             </span>
           </h1>
           <h2 className="text-xs sm:text-sm text-black my-4 md:my-12 lg:my-0 font-normal">
-            Your gateway to web development excellence. We craft bespoke digital
-            solutions to elevate your brand, fuel growth, and establish a strong
-            online presence. Unleash your business's full potential with our
-            expert team today.
+            Welcome to our web development expertise. We create custom digital
+            solutions to boost your brand and online presence. Unleash your
+            business potential with our expert team.
           </h2>
 
           <div className="flex justify-center gap-8 md:gap-14">
