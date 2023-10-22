@@ -124,7 +124,7 @@ function Nav() {
     <>
       {isNonMobile ? (
         <div
-          className={`container flex justify-between w-full rounded-none md:w-10/12 mx-auto md:rounded-xl bg-[#ffffff73] backdrop-blur-md z-10 ${navbarClass}`}
+          className={`container flex justify-between w-full rounded-none md:w-10/12 mx-auto md:rounded-xl bg-[#ffffffe9] backdrop-blur-md z-10 ${navbarClass}`}
         >
           <div className="flex px-4 py-1">
             <a href="/">
@@ -206,7 +206,7 @@ function Nav() {
                 disableScrollLock={true}
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
                 sx={{
-                  ".css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper": {
+                  "& .css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper": {
                     width: "250px",
                     marginLeft: "-50px",
                     top: "68px !important",

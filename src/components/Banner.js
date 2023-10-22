@@ -29,7 +29,7 @@ const Banner = () => {
       </div>
       <div className="flex justify-center flex-wrap items-center text-center lg:text-left gap-x-4 gap-y-2">
         <p className="text-xs md:text-sm leading-6 text-gray-900">
-          <strong className="font-semibold">
+          <strong className="font-semibold uppercase  ">
             Welcome to the New Webybuild
           </strong>
           <svg
