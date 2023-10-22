@@ -13,6 +13,9 @@ const Footer = () => {
   return (
     <>
       <footer className="px-4 py-12 mx-auto max-w-7xl">
+        <h1 className="flex justify-center items-center text-[2rem] mb-12">
+          Build Smarter. Better. Faster. Websites
+        </h1>
         <div className="grid grid-cols-2 gap-10 mb-3 md:grid-cols-3 lg:grid-cols-12 lg:gap-20">
           <div className="col-span-3">
             <a
@@ -38,7 +41,7 @@ const Footer = () => {
               businesses.
             </p>
           </div>
-          <nav className="col-span-1 md:col-span-1 lg:col-span-3">
+          <nav className="col-span-1 md:col-span-1 lg:col-span-3 mt-4">
             <p className="mb-3 text-sm font-semibold tracking-widest text-gray-400 uppercase">
               Company
             </p>
@@ -74,7 +77,7 @@ const Footer = () => {
               Contacts
             </Link>
           </nav>
-          <nav className="col-span-1 md:col-span-1 lg:col-span-3">
+          <nav className="col-span-1 md:col-span-1 lg:col-span-3 mt-4">
             <p className="mb-3 text-sm font-semibold tracking-wider text-gray-400 uppercase">
               Services
             </p>
@@ -122,13 +125,13 @@ const Footer = () => {
             </p>
             <div className="my-4">
               <div className="flex items-center gap-2">
-                <img src={support} alt="" />
+                <img className="w-[2rem]" src={support} alt="" />
                 <h1 className="text-gray-500">hello@webybuild.com</h1>
               </div>
             </div>
             <div className="my-4">
               <div className="flex items-center gap-2">
-                <img src={cloud} alt="" />
+                <img className="w-[2rem]" src={cloud} alt="" />
                 <h1 className="font-light">
                   USA, Canada, Germany, Australia, Switzerland, Ireland
                 </h1>
