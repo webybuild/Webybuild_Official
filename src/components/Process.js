@@ -64,6 +64,13 @@ const Process = () => {
                 make sure everything is just right. Once it's perfect, we serve
                 it up to our clients, marking the culmination of our journey.
               </p>
+              <p className="text-sm md:text-base leading-relaxed mb-4 font-light">
+                <span className="multi_color_heading font-semibold">
+                  Maintenance{" :- "}
+                </span>{" "}
+                Additionally, we ensure regular system upgrades to keep pace
+                with the latest software and version releases.
+              </p>
               <button className="border gradient-border-button mt-8 text-black font-semibold py-2 px-4 transition duration-300 ease-in-out transform hover:drop-shadow-md uppercase">
                 Contact Us
               </button>

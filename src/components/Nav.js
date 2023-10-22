@@ -37,7 +37,7 @@ const serviceItems = [
     icon: <PhonelinkOutlined />,
   },
   {
-    text: "Inventoryy Management",
+    text: "Inventory Management",
     icon: <InventoryOutlined />,
   },
   {

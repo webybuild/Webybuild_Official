@@ -1,11 +1,11 @@
 import React from "react";
 
-const HeadTitle = ({ titleOne, highlight, titleTwo, subTitle }) => {
+const HeadTitle = ({ titleOne, highlight, titleTwo, subTitle, id }) => {
   return (
     <>
-      <div className="flex flex-col w-full xl:px-20 my-8 lg:my-16">
+      <div id={id} className="flex flex-col w-full xl:px-20 my-8 lg:my-16">
         <div className="w-full mx-auto text-center">
-          <h1 className="text-2xl md:text-2xl lg:text-3xl uppercase font-bold mb-4 text-black drop-shadow-md px-4 md:px-2">
+          <h1 className="text-2xl md:text-2xl lg:text-3xl uppercase font-light mb-4 text-black drop-shadow-md px-4 md:px-2">
             {titleOne}{" "}
             <span className="multi_color_heading"> {highlight} </span>{" "}
             {titleTwo}

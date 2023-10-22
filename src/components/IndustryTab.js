@@ -51,6 +51,7 @@ export default function ResponsiveVerticalTabs() {
         highlight="We"
         titleTwo="Serve"
         subTitle="We partner with fast-growing companies, offering dedicated teams for cutting-edge software solutions."
+        id="industry"
       />
       <Box
         sx={{
@@ -86,14 +87,14 @@ export default function ResponsiveVerticalTabs() {
                 // color: "red",
               },
               ".css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected": {
-                fontWeight: "bold",
-                border: "0.5px solid #ffebeb",
-                boxShadow: "2px 3px 6px -4px #808080e3",
+                fontWeight: "bold !important",
+                border: "0.5px solid #ffebeb !important",
+                boxShadow: "2px 3px 6px -4px #808080e3 !important",
                 backgroundImage:
-                  "linear-gradient(to right, #ef4949 -1%, #5250E1 76%)",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                color: "transparent",
+                  "linear-gradient(to right, #ef4949 -1%, #5250E1 76%) !important",
+                WebkitBackgroundClip: "text !important",
+                backgroundClip: "text !important",
+                color: "transparent !important",
               },
             }}
           >
@@ -383,7 +384,7 @@ export default function ResponsiveVerticalTabs() {
         title="Not Seeing Your Industry Listed Here?"
         para="Don’t worry we are here for you!"
         paratwo="Contact us with different medium whatsapp, call or mail, We are open."
-        but="Connect With Us Now"
+        but="CONNECT WITH US NOW"
         space="12"
       />
     </>
