@@ -1,20 +1,11 @@
-<<<<<<< HEAD
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
-=======
-import React from "react";
-import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import ReactGA from "react-ga4";
->>>>>>> 8e1793998f31264e887238a5007f0473c0f482a5
 
 ReactGA.initialize("G-JL5J371PJV");
 ReactGA.send({ hitType: "pageview", page: "/", title: "User Visited" });
