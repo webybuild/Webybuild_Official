@@ -77,7 +77,7 @@ const OurBlog = () => {
           <div className="mx-auto-sm text-center lg:mb-16 mb-8">
             <HeadTitle
               titleOne="Our"
-              highlight="Blog"
+              highlight="Blogs"
               subTitle="We use an agile approach to test assumptions and connect with the
               needs of our audience early and often."
             />

@@ -99,12 +99,42 @@ const Contacts = () => {
             {/* <hr class="w-1/2 border-t border-gray-300 my-4"></hr> */}
             <div className="mt-16">
               <h1 className="font-bold my-4">Follow Us</h1>
-              <div className="flex gap-3">
-                <img src={linkedin} alt="" />
-                <img src={facebook} alt="" />
-                <img src={instagram} alt="" />
-                <img src={twitter} alt="" />
-                <img src={pinterst} alt="" />
+              <div className="flex gap-3 items-center">
+                <a
+                  href="https://www.linkedin.com/in/harsh-j-b509b4172/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={linkedin} alt="twitter" />
+                </a>
+                <a
+                  href="https://twitter.com/WEBYBUILD"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={twitter} alt="twitter" />
+                </a>
+                <a
+                  href="https://www.facebook.com/webybuild"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={facebook} alt="twitter" />
+                </a>
+                <a
+                  href="https://in.pinterest.com/webybuild/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={pinterst} alt="twitter" />
+                </a>
+                <a
+                  href="https://www.instagram.com/webybuild/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={instagram} alt="twitter" />
+                </a>
               </div>
             </div>
           </div>
@@ -187,16 +217,19 @@ const Contacts = () => {
                       id="Project_menu"
                       className="block p-3 w-full text-sm text-gray-900 bg-white rounded-lg border shadow-lg focus:ring-primary-500 focus:border-primary-500"
                     >
-                      <option value="Project Discussion">
-                        Project Discussion
+                      <option value="Web Design">Web Design</option>
+                      <option value="Web Development">Web Development</option>
+                      <option value="Inventory Management">
+                        Inventory Management
                       </option>
-                      <option value=" General Question">
-                        General Question
+                      <option value="Mobile Application">
+                        Mobile Application
                       </option>
-                      <option value="Complain">Complain</option>
-                      <option value="Feedback">Feedback</option>
-                      <option value="Job / Career">Job / Career</option>
-                      <option value="Legal">Legal</option>
+                      <option value="Cloud Services">Cloud Services</option>
+                      <option value="Logo Design">Logo Design</option>
+                      <option value="Digital Marketing">
+                        Digital Marketing
+                      </option>
                     </select>
                   </div>
                 </div>
@@ -213,7 +246,7 @@ const Contacts = () => {
                   type="text"
                   id="subject"
                   className="block p-3 w-full text-sm text-gray-900 bg-white rounded-lg border shadow-lg focus:ring-primary-500 focus:border-primary-500"
-                  placeholder="Let us know how we can help you"
+                  placeholder="Enter the name of your company or brand"
                   required
                 />
               </div>
@@ -264,8 +297,10 @@ const Contacts = () => {
                   Send Message
                 </a>
                 <a
-                  href="/"
                   className="block py-2 px-4 text-gray-700 hover:text-gray-500 font-medium duration-150 active:bg-gray-100 border"
+                  href="https://wa.me/918809867438"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Whatsapp Us
                 </a>

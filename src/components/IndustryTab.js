@@ -5,14 +5,6 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import healthcare from "../assets/images/IndustriesImg/health2.png";
-import education from "../assets/images/IndustriesImg/education.png";
-import media from "../assets/images/IndustriesImg/media2.png";
-import log from "../assets/images/IndustriesImg/log2.png";
-import realestate from "../assets/images/IndustriesImg/realestate2.png";
-import finance from "../assets/images/IndustriesImg/finance.jpg";
-import software from "../assets/images/IndustriesImg/software.jpg";
-import hospitality from "../assets/images/IndustriesImg/hospitality.png";
 import Slide from "@mui/material/Slide";
 import GetInTouch from "./GetInTouch";
 import HeadTitle from "./HeadTitle";
@@ -59,6 +51,7 @@ export default function ResponsiveVerticalTabs() {
         highlight="We"
         titleTwo="Serve"
         subTitle="We partner with fast-growing companies, offering dedicated teams for cutting-edge software solutions."
+        id="industry"
       />
       <Box
         sx={{
@@ -89,19 +82,19 @@ export default function ResponsiveVerticalTabs() {
             sx={{
               borderRight: 1,
               borderColor: "divider",
-              ".css-lfwcke-MuiTabs-flexContainer ": {
+              "& .css-lfwcke-MuiTabs-flexContainer ": {
                 gap: "0.3rem",
                 // color: "red",
               },
-              ".css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected": {
-                fontWeight: "bold",
-                border: "0.5px solid #ffebeb",
-                boxShadow: "2px 3px 6px -4px #808080e3",
+              "& .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected": {
+                fontWeight: "bold !important",
+                border: "0.5px solid #ffebeb !important",
+                boxShadow: "2px 3px 6px -4px #808080e3 !important",
                 backgroundImage:
-                  "linear-gradient(to right, #ef4949 -1%, #5250E1 76%)",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                color: "transparent",
+                  "linear-gradient(to right, #ef4949 -1%, #5250E1 76%) !important",
+                WebkitBackgroundClip: "text !important",
+                backgroundClip: "text !important",
+                color: "transparent !important",
               },
             }}
           >
@@ -178,7 +171,7 @@ export default function ResponsiveVerticalTabs() {
                 <div className="flex-1">
                   <img
                     className="w-full h-full border drop-shadow-md"
-                    src={education}
+                    src="https://dl.dropboxusercontent.com/scl/fi/hl8z3tx5c255tnevrk5dr/education.png?rlkey=b8ayhq6lcyl00y7ugy1yw0hb3&dl=0"
                     alt=""
                     srcset=""
                   />
@@ -206,7 +199,7 @@ export default function ResponsiveVerticalTabs() {
                 <div className="flex-1">
                   <img
                     className="w-full h-full border drop-shadow-md"
-                    src={healthcare}
+                    src="https://dl.dropboxusercontent.com/scl/fi/35tpfxjscukoomhzpu55y/health2.png?rlkey=jvl61ahqpas9lyq54nfih6pn1&dl=0"
                     alt=""
                     srcset=""
                   />
@@ -233,7 +226,7 @@ export default function ResponsiveVerticalTabs() {
                 <div className="flex-1">
                   <img
                     className="w-full h-full border drop-shadow-md"
-                    src={software}
+                    src="https://dl.dropboxusercontent.com/scl/fi/1mekgxd5r31juaf2f1gq3/software.jpg?rlkey=d2clg3bvpkd72mhnpm4fqnhlf&dl=0"
                     alt=""
                     srcset=""
                   />
@@ -262,7 +255,7 @@ export default function ResponsiveVerticalTabs() {
                 <div className="flex-1">
                   <img
                     className="w-full h-full border drop-shadow-md"
-                    src={realestate}
+                    src="https://dl.dropboxusercontent.com/scl/fi/zgrynhmg6df5lduay3ohk/realestate2.png?rlkey=cq7cbqpg58q95w7ncafozml9u&dl=0"
                     alt=""
                     srcset=""
                   />
@@ -291,7 +284,7 @@ export default function ResponsiveVerticalTabs() {
                 <div className="flex-1">
                   <img
                     className="w-full h-full border drop-shadow-md"
-                    src={finance}
+                    src="https://dl.dropboxusercontent.com/scl/fi/b1o2rkoxbenxjxdksvgpf/finance.jpg?rlkey=lfwqrbe2wdq1ci307vlhygj8o&dl=0"
                     alt=""
                     srcset=""
                   />
@@ -320,7 +313,7 @@ export default function ResponsiveVerticalTabs() {
                 <div className="flex-1">
                   <img
                     className="w-full h-full border drop-shadow-md"
-                    src={log}
+                    src="https://dl.dropboxusercontent.com/scl/fi/m3dzsdwqalyehqihdtgd0/log2.png?rlkey=srtjmj8ny5t4lpdn7rw0jgyn3&dl=0"
                     alt=""
                     srcset=""
                   />
@@ -349,7 +342,7 @@ export default function ResponsiveVerticalTabs() {
                 <div className="flex-1">
                   <img
                     className="w-full h-full border drop-shadow-md"
-                    src={media}
+                    src="https://dl.dropboxusercontent.com/scl/fi/v41vncj5wowmog0o2639i/media2.png?rlkey=mdp0kt3jyemnfpx3r7q0rs8ue&dl=0"
                     alt=""
                     srcset=""
                   />
@@ -377,7 +370,7 @@ export default function ResponsiveVerticalTabs() {
                 <div className="flex-1">
                   <img
                     className="w-full h-full border drop-shadow-md"
-                    src={hospitality}
+                    src="https://dl.dropboxusercontent.com/scl/fi/fvnex18zre6dttpuhjagh/hospitality.png?rlkey=f79rc8khvpbr8brlsl98m4br6&dl=0"
                     alt=""
                     srcset=""
                   />
@@ -391,7 +384,7 @@ export default function ResponsiveVerticalTabs() {
         title="Not Seeing Your Industry Listed Here?"
         para="Don’t worry we are here for you!"
         paratwo="Contact us with different medium whatsapp, call or mail, We are open."
-        but="Connect With Us Now"
+        but="CONNECT WITH US NOW"
         space="12"
       />
     </>
