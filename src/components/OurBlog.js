@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect }  from 'react'
 import blogOne from "../assets/images/Web-Interface/backgroundBanner.jpg";
 import codingImg from "../assets/images/blog/codingSvg.svg";
 import businessImg from "../assets/images/blog/businessSvg.svg";
@@ -7,6 +8,11 @@ import blogImg from "../assets/images/blog/blogsSvg.svg";
 import graphicImg from "../assets/images/blog/graphicsSvg.svg";
 import growthImg from "../assets/images/blog/growthSvg.svg";
 import HeadTitle from "./HeadTitle";
+import { useRecoilState } from "recoil";
+import hotBlogsAtom from '../atoms/hotBlogsAtom';
+import axios from "axios";
+import { Link } from "react-router-dom";
+import { url } from "../utils/config";
 
 const categoryItem = [
   {
@@ -42,6 +48,28 @@ const categoryItem = [
 ];
 
 const OurBlog = () => {
+  const [ blogs, setBlogs ] = useState([])
+  const [ hotBlogs, setHotBlogs ] = useRecoilState(hotBlogsAtom)
+
+  useEffect(() => {
+      fetchBlogs()
+  }, [])
+
+
+  async function fetchBlogs() {
+    try {
+      const [ blgs, htblgs, edtrblgs ] = await Promise.all([
+        axios.get(`${url}/blogs?type=recent&page=1&limit=4`),
+        axios.get(`${url}/blogs?type=hot&page=1&limit=4`)
+      ])
+      console.log(blgs, htblgs, edtrblgs);
+      setBlogs(blgs.data.data);
+      setHotBlogs(htblgs.data.data);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  
   return (
     <>
       <section className="bg-white">
@@ -56,243 +84,68 @@ const OurBlog = () => {
           </div>
           <div className="flex gap-16">
             <div className="flex-[2] flex flex-wrap gap-4">
-              <div className="flex gap-8 flex-col lg:flex-row">
-                <div className="p-6 bg-white rounded-lg border border-gray-200 shadow-md">
-                  <div className="flex justify-between items-center mb-5 text-gray-500">
-                    <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
-                      <svg
-                        className="mr-1 w-3 h-3"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path>
-                      </svg>
-                      Tutorial
-                    </span>
-                    <span className="text-sm">14 days ago</span>
-                  </div>
-                  <div>
-                    <img src={blogOne} alt="" />
-                  </div>
-                  <div>
-                    <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                      <a href="/">How to quickly deploy a static website</a>
-                    </h2>
-                    <p className="mb-5 font-light text-gray-500 dark:text-gray-400">
-                      Static websites are now used to bootstrap lots of websites
-                      and are becoming the basis for a variety of tools that
-                    </p>
-                    <div className="flex justify-between items-center">
-                      <div className="flex items-center space-x-4">
-                        <img
-                          className="w-7 h-7 rounded-full"
-                          src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                          alt="Jese Leos avatar"
-                        />
-                        <span className="font-medium">Jese Leos</span>
+              <div className="grid grid-cols-2 gap-4 lg:flex-row">
+                {
+                  blogs.copyWithin(1,0).map((blog, index) => 
+                    <div key={index} className="p-6 bg-white rounded-lg border border-gray-200 shadow-md col-span-1">
+                      <div className="flex justify-between items-center mb-5 text-gray-500">
+                        <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
+                          <svg
+                            className="mr-1 w-3 h-3"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path>
+                          </svg>
+                          {blog.category.toUpperCase()}
+                        </span>
+                        <span className="text-sm">{blog.date}</span>
                       </div>
-                      <a
-                        href="/"
-                        className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline"
-                      >
-                        Read more
-                        <svg
-                          className="ml-2 w-4 h-4"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-6 bg-white rounded-lg border border-gray-200 shadow-md ">
-                  <div className="flex justify-between items-center mb-5 text-gray-500">
-                    <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
-                      <svg
-                        className="mr-1 w-3 h-3"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z"
-                          clip-rule="evenodd"
-                        ></path>
-                        <path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"></path>
-                      </svg>
-                      Article
-                    </span>
-                    <span className="text-sm">14 days ago</span>
-                  </div>
-                  <div>
-                    <img src={blogOne} alt="" />
-                  </div>
-                  <div>
-                    <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                      <a href="/">How to quickly deploy a static website</a>
-                    </h2>
-                    <p className="mb-5 font-light text-gray-500 dark:text-gray-400">
-                      Static websites are now used to bootstrap lots of websites
-                      and are becoming the basis for a variety of tools that
-                    </p>
-                    <div className="flex justify-between items-center">
-                      <div className="flex items-center space-x-4">
-                        <img
-                          className="w-7 h-7 rounded-full"
-                          src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                          alt="Jese Leos avatar"
-                        />
-                        <span className="font-medium">Jese Leos</span>
+                      <div>
+                        <img src={blogOne} alt="" />
                       </div>
-                      <a
-                        href="/"
-                        className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline"
-                      >
-                        Read more
-                        <svg
-                          className="ml-2 w-4 h-4"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </a>
+                      <div>
+                        <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                          <a href="/">{blog.title}</a>
+                        </h2>
+                        <p className="mb-5 font-light text-gray-500 dark:text-gray-400">
+                          {blog.body[0]}
+                        </p>
+                        <div className="flex justify-between items-center">
+                          <div className="flex items-center space-x-4">
+                            <img
+                              className="w-7 h-7 rounded-full"
+                              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
+                              alt="Jese Leos avatar"
+                            />
+                            <span className="font-medium">{blog.author}</span>
+                          </div>
+                          <Link
+                            to={`/blog/${blog.id}`}
+                            className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline"
+                          >
+                            Read more
+                            <svg
+                              className="ml-2 w-4 h-4"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </Link>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  )
+                }    
               </div>
               <div className="flex gap-8 flex-col lg:flex-row">
-                <div className="p-6 bg-white rounded-lg border border-gray-200 shadow-md">
-                  <div className="flex justify-between items-center mb-5 text-gray-500">
-                    <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
-                      <svg
-                        className="mr-1 w-3 h-3"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path>
-                      </svg>
-                      Tutorial
-                    </span>
-                    <span className="text-sm">14 days ago</span>
-                  </div>
-                  <div>
-                    <img src={blogOne} alt="" />
-                  </div>
-                  <div>
-                    <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                      <a href="/">How to quickly deploy a static website</a>
-                    </h2>
-                    <p className="mb-5 font-light text-gray-500 dark:text-gray-400">
-                      Static websites are now used to bootstrap lots of websites
-                      and are becoming the basis for a variety of tools that
-                    </p>
-                    <div className="flex justify-between items-center">
-                      <div className="flex items-center space-x-4">
-                        <img
-                          className="w-7 h-7 rounded-full"
-                          src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                          alt="Jese Leos avatar"
-                        />
-                        <span className="font-medium">Jese Leos</span>
-                      </div>
-                      <a
-                        href="/"
-                        className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline"
-                      >
-                        Read more
-                        <svg
-                          className="ml-2 w-4 h-4"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-6 bg-white rounded-lg border border-gray-200 shadow-md ">
-                  <div className="flex justify-between items-center mb-5 text-gray-500">
-                    <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
-                      <svg
-                        className="mr-1 w-3 h-3"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z"
-                          clip-rule="evenodd"
-                        ></path>
-                        <path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"></path>
-                      </svg>
-                      Article
-                    </span>
-                    <span className="text-sm">14 days ago</span>
-                  </div>
-                  <div>
-                    <img src={blogOne} alt="" />
-                  </div>
-                  <div>
-                    <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                      <a href="/">How to quickly deploy a static website</a>
-                    </h2>
-                    <p className="mb-5 font-light text-gray-500 dark:text-gray-400">
-                      Static websites are now used to bootstrap lots of websites
-                      and are becoming the basis for a variety of tools that
-                    </p>
-                    <div className="flex justify-between items-center">
-                      <div className="flex items-center space-x-4">
-                        <img
-                          className="w-7 h-7 rounded-full"
-                          src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                          alt="Jese Leos avatar"
-                        />
-                        <span className="font-medium">Jese Leos</span>
-                      </div>
-                      <a
-                        href="/"
-                        className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline"
-                      >
-                        Read more
-                        <svg
-                          className="ml-2 w-4 h-4"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
             <div className="flex-[1] hidden lg:block">
@@ -318,74 +171,26 @@ const OurBlog = () => {
                   <p className="font-light text-sm">What's hot</p>
                   <h1 className="font-semibold text-2xl">Most Popular</h1>
                 </div>
-                <div className="mt-8">
-                  <a href="/">
-                    <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                      coding
-                    </div>
-                    <p className="my-2 font-[400]">
-                      A Journey Through Bohemian Beauti Exploring The Streets of
-                      Prague
-                    </p>
-                  </a>
+                {
+                  hotBlogs.map((blog, index) => 
+                    <div className="mt-8" key={index}>
+                      <Link to={`/blog/${blog.id}`}>
+                        <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
+                          {blog.category}
+                        </div>
+                        <p className="my-2 font-[400]">
+                          {blog.title}
+                        </p>
+                      </Link>
 
-                  <div className="flex text-[13px] items-center gap-2 font-light">
-                    <p>Joseph Owen</p>
-                    <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                    <p>02-10-23</p>
-                  </div>
-                </div>
-                <div className="mt-8">
-                  <a href="/">
-                    <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                      coding
+                      <div className="flex text-[13px] items-center gap-2 font-light">
+                        <p>{blog.author}</p>
+                        <div className="w-1 h-1 bg-red-900 rounded-full"></div>
+                        <p>{blog.date}</p>
+                      </div>
                     </div>
-                    <p className="my-2 font-[400]">
-                      A Journey Through Bohemian Beauti Exploring The Streets of
-                      Prague
-                    </p>
-                  </a>
-
-                  <div className="flex text-[13px] items-center gap-2 font-light">
-                    <p>Joseph Owen</p>
-                    <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                    <p>02-10-23</p>
-                  </div>
-                </div>
-                <div className="mt-8">
-                  <a href="/">
-                    <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                      coding
-                    </div>
-                    <p className="my-2 font-[400]">
-                      A Journey Through Bohemian Beauti Exploring The Streets of
-                      Prague
-                    </p>
-                  </a>
-
-                  <div className="flex text-[13px] items-center gap-2 font-light">
-                    <p>Joseph Owen</p>
-                    <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                    <p>02-10-23</p>
-                  </div>
-                </div>
-                <div className="mt-8">
-                  <a href="/">
-                    <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                      coding
-                    </div>
-                    <p className="my-2 font-[400]">
-                      A Journey Through Bohemian Beauti Exploring The Streets of
-                      Prague
-                    </p>
-                  </a>
-
-                  <div className="flex text-[13px] items-center gap-2 font-light">
-                    <p>Joseph Owen</p>
-                    <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                    <p>02-10-23</p>
-                  </div>
-                </div>
+                  )
+                }
               </div>
             </div>
           </div>

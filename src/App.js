@@ -23,8 +23,8 @@ function App() {
           path="/services/custom-web-development"
           element={<CustomWebDev />}
         />
-        <Route path="/blog" element={<BlogFront />} />
-        <Route path="/blog/blog-detail" element={<BlogDetail />} />
+        <Route path="/blogs" element={<BlogFront />} />
+        <Route path="/blog/*" element={<BlogDetail />} />
         <Route path="/contacts" element={<Contacts />} />
       </Routes>
       <Footer />

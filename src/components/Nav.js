@@ -267,7 +267,7 @@ function Nav() {
             <div>
               <Button
                 onClick={() => {
-                  navigate(`/blog`);
+                  navigate(`/blogs`);
                 }}
                 variant="outlined"
                 startIcon={
