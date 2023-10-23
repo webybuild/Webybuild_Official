@@ -12,11 +12,11 @@ import cloud from "../assets/images/footer/cloud.svg";
 const Footer = () => {
   return (
     <>
-      <footer className="px-4 py-12 mx-auto max-w-7xl">
-        <h1 className="flex justify-center items-center text-[2rem] mb-12">
+      <footer className="px-8 py-8 mx-auto max-w-7xl place-content-center">
+        <h1 className="flex justify-center items-center text-[2rem] mb-12 text-center">
           Build Smarter. Better. Faster. Websites
         </h1>
-        <div className="grid grid-cols-2 gap-10 mb-3 md:grid-cols-3 lg:grid-cols-12 lg:gap-20">
+        <div className="grid grid-cols-2 gap-0 md:gap-10 mb-3 md:grid-cols-3 lg:grid-cols-12 lg:gap-20">
           <div className="col-span-4">
             <a
               className="flex gap-1 justify-center items-center w-9/12"
@@ -44,6 +44,7 @@ const Footer = () => {
               exceed our clients expectations.
             </p>
           </div>
+
           <nav className="col-span-1 md:col-span-1 lg:col-span-2 mt-4">
             <p className="mb-3 text-sm font-semibold tracking-widest text-gray-400 uppercase">
               Company
