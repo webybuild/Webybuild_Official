@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import ReactGA from "react-ga4";
 
-ReactGA.initialize("G-G051QSG89W");
+ReactGA.initialize("G-JL5J371PJV");
 ReactGA.send({ hitType: "pageview", page: "/", title: "User Visited" });
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
