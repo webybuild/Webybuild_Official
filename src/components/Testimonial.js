@@ -25,7 +25,7 @@ const Testimonial = () => {
     },
     {
       quote:
-        "I couldn't be happier with Webybuild's service. They delivered on time, and their creativity shone through with a fantastic user interface. The lead generation features have been a game-changer for my business growth",
+        "I couldn't be happier with Webybuild's service. They delivered on time, and their creativity shone through with a fantastic user interface.",
       author: "Paul Wagner",
       position: "Germany",
       image: Paul,
@@ -89,7 +89,7 @@ const Testimonial = () => {
   ];
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
