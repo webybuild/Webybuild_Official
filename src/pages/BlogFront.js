@@ -10,6 +10,7 @@ import growthImg from "../assets/images/blog/growthSvg.svg";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { url } from "../utils/config";
+import MarkdownPreview from '@uiw/react-markdown-preview';
 
 const categoryItem = [
   {
@@ -145,7 +146,7 @@ const BlogFront = () => {
             blogs.map((blog, index) => 
             <div key={index} className="flex flex-col justify-center items-center sm:flex-row mt-4 sm:mt-8">
               <div className="w-4/5 sm:w-2/6">
-                <img className="w-full" src={bannerImg} alt="bannerimage" />
+                <img className="w-full" src={blog.imageUrl} alt="bannerimage" />
               </div>
               <div className="flex-1 p-4 m-4">
                 <div className="flex items-center text-xs sm:text-sm gap-2 sm:gap-3">
@@ -154,13 +155,13 @@ const BlogFront = () => {
                   <p className="font-[400] uppercase text-red-900">{blog.category}</p>
                 </div>
                 <div>
-                  <a href="/">
+                  <Link to={`/blog/${blog.id}`}>
                     <h2 className="text-2xl sm:text-3xl mt-2 sm:mt-4">
                       {blog.title}
                     </h2>
-                  </a>
+                  </Link>
                   <p className="my-3 sm:my-3 font-light">
-                    {blog.body[0]}
+                    <MarkdownPreview source={blog.body[0]} /> 
                   </p>
                   <Link to={`/blog/${blog.id}`} className="border-b-2 border-red-800">Read More</Link>
                 </div>

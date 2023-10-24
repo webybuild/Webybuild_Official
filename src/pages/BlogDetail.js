@@ -13,6 +13,8 @@ import hotBlogsAtom from '../atoms/hotBlogsAtom'
 import editorBlogsAtom from '../atoms/editorBlogsAtom'
 import { Link } from "react-router-dom";
 import { url } from "../utils/config";
+import MarkdownPreview from '@uiw/react-markdown-preview';
+import AddComment from "../components/AddComment";
 
 const categoryItem = [
   {
@@ -51,6 +53,9 @@ const BlogDetail = () => {
   const [ data, setData ] = useState(null)
   const [ hotBlogs, setHotBlogs ] = useRecoilState(hotBlogsAtom)
   const [ editorBlogs, setEditorBlogs ] = useRecoilState(editorBlogsAtom)
+  const [ showCommentBox, setShowCommentBox ] = useState(false)
+  const [ comment, setComment ] = useState('')
+  const [ blogId, setBlogId ] = useState()
   // {title: '', body: [], comments: [], author: '', date: ''}
   useEffect(() => { 
     fetchBlogData();
@@ -59,6 +64,7 @@ const BlogDetail = () => {
 
   async function fetchBlogData() {
     const id = window.location.pathname.split('/')[2]
+    setBlogId(id)
     try {
       const {data} = await axios.get(`${url}/blog/${id}`) ;
       console.log(data)
@@ -83,6 +89,9 @@ const BlogDetail = () => {
   return (
     data !== null &&
     <>
+      {
+        showCommentBox && <AddComment data={{comment, blogId}} setShowForm={setShowCommentBox} />
+      }
       <div className="container mx-auto overflow-hidden px-4 sm:px-8 md:px-16 lg:px-28">
         <div className="flex flex-col items-center justify-center lg:flex-row mt-4 sm:mt-6">
           <div className="flex-1 p-4 sm:p-6 md:p-10 m-4 sm:m-6">
@@ -104,7 +113,7 @@ const BlogDetail = () => {
           <div className="w-4/5 lg:w-2/6">
             <img
               className="w-full drop-shadow-lg"
-              src={bannerImg}
+              src={data.imageUrl}
               alt="bannerimage"
             />
           </div>
@@ -118,7 +127,9 @@ const BlogDetail = () => {
               <img className="w-full" src={bannerImg} alt="bannerimage" />
             </div> */}
             {
-              data && data.body && data.body.map((body, index) => <p className="font-light" key={index}>{body}</p>)
+              data && data.body && data.body.map((body, index) => 
+                <p className="font-light" key={index}><MarkdownPreview source={body} /></p>
+              )
             }
             
           </div>
@@ -131,8 +142,12 @@ const BlogDetail = () => {
                 className="w-full sm:w-2/3 border border-gray-300 rounded-md px-4 py-2 mr-2 focus:outline-none focus:border-blue-500"
                 type="text"
                 placeholder="Add a comment..."
+                onChange={(e) => setComment(e.target.value)}
               />
-              <button className="bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-md">
+              <button 
+                onClick={() => {if(comment.length > 0) setShowCommentBox(true)}}
+                className="bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-md"
+              >
                 Post
               </button>
             </div>

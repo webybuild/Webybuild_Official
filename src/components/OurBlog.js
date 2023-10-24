@@ -13,6 +13,8 @@ import hotBlogsAtom from '../atoms/hotBlogsAtom';
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { url } from "../utils/config";
+import MarkdownPreview from '@uiw/react-markdown-preview';
+
 
 const categoryItem = [
   {
@@ -86,7 +88,7 @@ const OurBlog = () => {
             <div className="flex-[2] flex flex-wrap gap-4">
               <div className="grid grid-cols-2 gap-4 lg:flex-row">
                 {
-                  blogs.copyWithin(1,0).map((blog, index) => 
+                  blogs.map((blog, index) => 
                     <div key={index} className="p-6 bg-white rounded-lg border border-gray-200 shadow-md col-span-1">
                       <div className="flex justify-between items-center mb-5 text-gray-500">
                         <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
@@ -103,14 +105,14 @@ const OurBlog = () => {
                         <span className="text-sm">{blog.date}</span>
                       </div>
                       <div>
-                        <img src={blogOne} alt="" />
+                        <img src={blog.imageUrl} alt="" />
                       </div>
                       <div>
                         <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                          <a href="/">{blog.title}</a>
+                          <Link to={`/blog/${blog.id}`}>{blog.title}</Link>
                         </h2>
                         <p className="mb-5 font-light text-gray-500 dark:text-gray-400">
-                          {blog.body[0]}
+                          <MarkdownPreview source={blog.body[0]} />
                         </p>
                         <div className="flex justify-between items-center">
                           <div className="flex items-center space-x-4">

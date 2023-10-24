@@ -1,4 +1,5 @@
 import React from "react";
+import {useState} from 'react';
 import manifest from "../assets/images/portfolio/manifest.svg";
 import desginfirm from "../assets/images/portfolio/designFirms.svg";
 import googlereview from "../assets/images/portfolio/google.svg";
@@ -12,7 +13,49 @@ import pinterst from "../assets/images/social/logos_pinterest.svg";
 import tick from "../assets/images/Shapes/tick.svg";
 import phone from "../assets/images/Shapes/phone.svg";
 import support from "../assets/images/Shapes/support.svg";
+import axios from "axios";
+import { url } from "../utils/config";
+
+
+
+
 const Contacts = () => {
+  const [ form, setForm ] = useState({})
+  const [ checked, setChecked ] = useState(false)
+  const [ message, setMessage ] = useState('');
+
+
+  function updateFormData(e) {
+    const { name, value } = e.target;
+    let data = { ...form };
+    data[name] = value;
+    setForm(data);
+  }
+
+  async function contact(){
+    try {
+      if(!checked) {
+        setMessage(<span className="text-red-500">{'Please accept our terms & conditions!'}</span>)
+      } else {
+        if(
+          form.name && form.name.length != 0 &&
+          form.email && form.email.match('@') && form.email.match('.') &&
+          form.helpType && form.helpType.length != 0 &&
+          form.service && form.service.length !== 0
+        ){
+          const {data} = await axios.post(url + '/contact', form);
+          setMessage(<span className="text-green-500">{data.message}</span>)
+        } else {
+          setMessage(<span className="text-red-500">{'Please enter Name, Email, Support type & Service correctly!'}</span>)
+        }
+      }
+    } catch (error) {
+      console.log(error)
+      setMessage(<span className="text-red-500">{error.response.data.message}</span>)
+    }
+  }
+
+
   return (
     <>
       <section className="bg-white mt-16 px-16">
@@ -158,9 +201,12 @@ const Contacts = () => {
                   <input
                     type="text"
                     id="name"
+                    name='name'
                     className="block p-3 w-full text-sm text-gray-900 bg-white rounded-lg shadow-lg focus:ring-primary-500 focus:border-primary-500"
                     placeholder="John Doe"
                     required
+                    value={form.name}
+                    onChange={e => updateFormData(e)}
                   />
                 </div>
                 <div className="w-full">
@@ -176,6 +222,9 @@ const Contacts = () => {
                     className="block p-3 w-full text-sm text-gray-900 bg-white rounded-lg border shadow-lg focus:ring-primary-500 focus:border-primary-500"
                     placeholder="name@email.com"
                     required
+                    name="email"
+                    value={form.email}
+                    onChange={e => updateFormData(e)}
                   />
                 </div>
               </div>
@@ -191,6 +240,9 @@ const Contacts = () => {
                     <select
                       id="Project_menu"
                       className="block p-3 w-full text-sm text-gray-900 bg-white rounded-lg border shadow-lg focus:ring-primary-500 focus:border-primary-500"
+                      name="helpType"
+                      value={form.helpType}
+                      onChange={e => updateFormData(e)}
                     >
                       <option value="Project Discussion">
                         Project Discussion
@@ -216,6 +268,9 @@ const Contacts = () => {
                     <select
                       id="Project_menu"
                       className="block p-3 w-full text-sm text-gray-900 bg-white rounded-lg border shadow-lg focus:ring-primary-500 focus:border-primary-500"
+                      name="service"
+                      value={form.service}
+                      onChange={e => updateFormData(e)}
                     >
                       <option value="Web Design">Web Design</option>
                       <option value="Web Development">Web Development</option>
@@ -248,6 +303,9 @@ const Contacts = () => {
                   className="block p-3 w-full text-sm text-gray-900 bg-white rounded-lg border shadow-lg focus:ring-primary-500 focus:border-primary-500"
                   placeholder="Enter the name of your company or brand"
                   required
+                  name="company"
+                  value={form.company}
+                  onChange={e => updateFormData(e)}
                 />
               </div>
               <div className="sm:col-span-2">
@@ -263,6 +321,9 @@ const Contacts = () => {
                   className="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg shadow-lg focus:ring-primary-500 focus:border-primary-500"
                   placeholder="Leave a comment..."
                   required
+                  name="message"
+                  value={form.message}
+                  onChange={e => updateFormData(e)}
                 ></textarea>
               </div>
               <div className="">
@@ -272,6 +333,8 @@ const Contacts = () => {
                     id="terms"
                     className="form-checkbox text-primary-500 h-5 w-5 rounded-md border-2 border-primary-500 focus:ring-2 ring-primary-500 focus:ring-offset-0 dark:text-primary-500 dark:focus:ring-primary-500 dark:ring-offset-0"
                     required
+                    checked={checked}
+                    onChange={() => setChecked(!checked)}
                   />
                   <label
                     for="terms"
@@ -289,13 +352,14 @@ const Contacts = () => {
                   further questions.
                 </p>
               </div>
+              <div>{message}</div>
               <div className="items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
-                <a
-                  href="/"
-                  className="block py-2 px-4 text-black border font-medium gradient-border-button  hover:shadow-lg "
+                <span
+                  onClick={() => contact()}
+                  className="block py-2 cursor-pointer px-4 text-black border font-medium gradient-border-button  hover:shadow-lg "
                 >
                   Send Message
-                </a>
+                </span>
                 <a
                   className="block py-2 px-4 text-gray-700 hover:text-gray-500 font-medium duration-150 active:bg-gray-100 border"
                   href="https://wa.me/918809867438"
