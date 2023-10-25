@@ -95,6 +95,14 @@ const BlogDetail = () => {
         console.log(error)
       }
     }
+    if(hotBlogs.length === 0){
+      try {
+        const {data} = await axios.get(`${url}/blogs?type=hot&page=1&limit=4`)
+        setHotBlogs(data.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
   }
 
   async function fetchNewBlog(id) {

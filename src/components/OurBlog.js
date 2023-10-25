@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from 'react';
 import blogOne from "../assets/images/Web-Interface/compressedLanding.png";
 import codingImg from "../assets/images/blog/codingSvg.svg";
 import businessImg from "../assets/images/blog/businessSvg.svg";
