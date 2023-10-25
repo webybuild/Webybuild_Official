@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import { url } from "../utils/config";
 import MarkdownPreview from '@uiw/react-markdown-preview';
 import AddComment from "../components/AddComment";
+import avatars from "../utils/avatars";
 
 const categoryItem = [
   {
@@ -62,6 +63,15 @@ const BlogDetail = () => {
     fetchEditorBlogs()
   }, [])
 
+
+  function addComment(name, avatar) {
+    const blog = {...data};
+    blog.comments.push({comment, name, avatar, date: new Date(Date.now()).toDateString()});
+    setData(blog);
+    setComment('')
+  }
+
+
   async function fetchBlogData() {
     const id = window.location.pathname.split('/')[2]
     setBlogId(id)
@@ -90,7 +100,7 @@ const BlogDetail = () => {
     data !== null &&
     <>
       {
-        showCommentBox && <AddComment data={{comment, blogId}} setShowForm={setShowCommentBox} />
+        showCommentBox && <AddComment data={{comment, blogId}} addComment={addComment} setShowForm={setShowCommentBox} />
       }
       <div className="container mx-auto overflow-hidden px-4 sm:px-8 md:px-16 lg:px-28">
         <div className="flex flex-col items-center justify-center lg:flex-row mt-4 sm:mt-6">
@@ -102,7 +112,7 @@ const BlogDetail = () => {
             </div>
             <div className="flex items-center gap-4 mt-8">
               <div className="w-[6%]">
-                <img className="w-full h-full" src={growthImg} alt="" />
+                <img className="w-full h-full" src={avatars[data.avatar] || avatars['anon']} alt="" />
               </div>
               <div>
                 <h1 className="text-sm font-light">{data.author}</h1>
@@ -143,6 +153,7 @@ const BlogDetail = () => {
                 type="text"
                 placeholder="Add a comment..."
                 onChange={(e) => setComment(e.target.value)}
+                value={comment}
               />
               <button 
                 onClick={() => {if(comment.length > 0) setShowCommentBox(true)}}
@@ -159,7 +170,7 @@ const BlogDetail = () => {
                     <div className="w-[10%]">
                       <img
                         className="w-full h-full rounded-full"
-                        src={growthImg}
+                        src={avatars[comment.avatar]  || avatars['anon']}
                         alt="ProfileImage"
                       />
                     </div>
@@ -168,7 +179,7 @@ const BlogDetail = () => {
                         {comment.name}
                       </h1>
                       <p className="text-xs sm:text-xs text-gray-500">
-                        {comment.date}
+                        {new Date(comment.date).toLocaleDateString()}
                       </p>
                     </div>
                   </div>
@@ -235,8 +246,8 @@ const BlogDetail = () => {
                   <div key={index} className="mt-8 flex justify-center items-center gap-4">
                     <div className="w-2/6">
                       <img
-                        className="w-full h-full"
-                        src={codingImg}
+                        className="w-full h-full rounded-full"
+                        src={avatars[blog.avatar] || avatars['anon']}
                         alt=""
                         srcset=""
                       />

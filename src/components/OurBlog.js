@@ -14,6 +14,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { url } from "../utils/config";
 import MarkdownPreview from '@uiw/react-markdown-preview';
+import avatars from "../utils/avatars";
 
 
 const categoryItem = [
@@ -118,7 +119,7 @@ const OurBlog = () => {
                           <div className="flex items-center space-x-4">
                             <img
                               className="w-7 h-7 rounded-full"
-                              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
+                              src={avatars[blog.avatar] || avatars['anon']}
                               alt="Jese Leos avatar"
                             />
                             <span className="font-medium">{blog.author}</span>

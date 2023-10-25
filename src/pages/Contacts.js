@@ -20,7 +20,7 @@ import { url } from "../utils/config";
 
 
 const Contacts = () => {
-  const [ form, setForm ] = useState({})
+  const [ form, setForm ] = useState({helpType: 'Project Discussion', service: 'Web Design'})
   const [ checked, setChecked ] = useState(false)
   const [ message, setMessage ] = useState('');
 
