@@ -131,7 +131,13 @@ export default function HomeTechTab() {
               {icons.map((icon, number) => (
                 <div
                   key={number}
-                  className="icon w-8 h-8 md:w-20 md:h-20 lg:w-24 lg:h-24"
+                  className={`icon ${
+                    number === 2
+                      ? "w-[1.3rem]"
+                      : "w-8" && number === 3
+                      ? "w-[2.4rem]"
+                      : "w-8"
+                  } h-12 md:w-20 md:h-20 lg:w-24 lg:h-24`}
                 >
                   <img src={icon} alt={"icons"} />
                 </div>
@@ -143,7 +149,7 @@ export default function HomeTechTab() {
               {webDev.map((icon, number) => (
                 <div
                   key={number}
-                  className="icon w-8 h-8 md:w-20 md:h-20 lg:w-24 lg:h-24"
+                  className="icon w-10 h-12 md:w-20 md:h-20 lg:w-24 lg:h-24"
                 >
                   <img src={icon} alt={"icons"} />
                 </div>
@@ -160,7 +166,7 @@ export default function HomeTechTab() {
               {cloud.map((icon, number) => (
                 <div
                   key={number}
-                  className="icon w-8 h-8 md:w-20 md:h-20 lg:w-24 lg:h-24"
+                  className="icon w-10 h-8 md:w-20 md:h-20 lg:w-24 lg:h-24"
                 >
                   <img src={icon} alt={"icons"} />
                 </div>

@@ -94,10 +94,10 @@ const Header = () => {
             </div>
           </div>
           <div className="flex gap-4 mt-7 justify-center lg:mb-8 xl:mb-0">
-            <img className="w-[21%]" src={googlereview} alt="" />
+            <img className="w-[13%] ml-4" src={clutch} alt="" />
             <img className="w-[15%]" src={desginfirm} alt="" />
             <img className="w-[20%] lg:w-[18%] ml-5" src={manifest} alt="" />
-            <img className="w-[13%] ml-4" src={clutch} alt="" />
+            <img className="w-[21%]" src={googlereview} alt="" />
           </div>
         </div>
         {/* <div className="container mx-auto lg:flex-1 my-4 lg:my-0">

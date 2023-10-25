@@ -1,11 +1,10 @@
 import React from "react";
-import { useState, useEffect }  from 'react'
-import blogOne from "../assets/images/Web-Interface/backgroundBanner.jpg";
+import blogOne from "../assets/images/Web-Interface/compressedLanding.png";
 import codingImg from "../assets/images/blog/codingSvg.svg";
 import businessImg from "../assets/images/blog/businessSvg.svg";
 import websiteImg from "../assets/images/blog/websiteSvg.svg";
 import blogImg from "../assets/images/blog/blogsSvg.svg";
-import graphicImg from "../assets/images/blog/graphicsSvg.svg";
+import graphicImg from "../assets/images/blog/graphicsSvg.png";
 import growthImg from "../assets/images/blog/growthSvg.svg";
 import HeadTitle from "./HeadTitle";
 import { useRecoilState } from "recoil";

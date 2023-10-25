@@ -5,7 +5,7 @@ import codingImg from "../assets/images/blog/codingSvg.svg";
 import businessImg from "../assets/images/blog/businessSvg.svg";
 import websiteImg from "../assets/images/blog/websiteSvg.svg";
 import blogImg from "../assets/images/blog/blogsSvg.svg";
-import graphicImg from "../assets/images/blog/graphicsSvg.svg";
+import graphicImg from "../assets/images/blog/graphicsSvg.png";
 import growthImg from "../assets/images/blog/growthSvg.svg";
 import { Link } from "react-router-dom";
 import axios from "axios";
