@@ -33,6 +33,7 @@ const Contacts = () => {
   }
 
   async function contact(){
+    console.log(form)
     try {
       if(!checked) {
         setMessage(<span className="text-red-500">{'Please accept our terms & conditions!'}</span>)
@@ -44,6 +45,7 @@ const Contacts = () => {
           form.service && form.service.length !== 0
         ){
           const {data} = await axios.post(url + '/contact', form);
+          console.log(data)
           setMessage(<span className="text-green-500">{data.message}</span>)
         } else {
           setMessage(<span className="text-red-500">{'Please enter Name, Email, Support type & Service correctly!'}</span>)
@@ -217,6 +219,7 @@ const Contacts = () => {
                   <input
                     type="text"
                     id="name"
+                    name="name"
                     className="block p-3 w-full text-xs md:text-sm text-gray-900 bg-white rounded-lg shadow-lg focus:ring-primary-500 focus:border-primary-500"
                     placeholder="John Doe"
                     required
@@ -253,7 +256,9 @@ const Contacts = () => {
                   </label>
                   <div className="flex items-center">
                     <select
+                      name="helpType"
                       id="Project_menu"
+                      onChange={e => updateFormData(e)}
                       className="block p-3 w-full text-xs md:text-sm text-gray-900 bg-white rounded-lg border shadow-lg focus:ring-primary-500 focus:border-primary-500"
                     >
                       <option value="Project Discussion">
@@ -278,7 +283,9 @@ const Contacts = () => {
                   </label>
                   <div className="flex items-center">
                     <select
+                     name="service"
                       id="Project_menu"
+                      onChange={e => updateFormData(e)}
                       className="block p-3 w-full text-xs md:text-sm text-gray-900 bg-white rounded-lg border shadow-lg focus:ring-primary-500 focus:border-primary-500"
                     >
                       <option value="Web Design">Web Design</option>
@@ -369,8 +376,8 @@ const Contacts = () => {
               <div>{message}</div>
               <div className="items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
                 <span
-                  href="/"
-                  className="block py-2 px-4 text-black border font-medium gradient-border-button  hover:shadow-lg text-center lg:text-left"
+                  onClick={() => contact()}
+                  className="block cursor-pointer py-2 px-4 text-black border font-medium gradient-border-button  hover:shadow-lg text-center lg:text-left"
                 >
                   Send Message
                 </span>
