@@ -17,6 +17,7 @@ import MarkdownPreview from '@uiw/react-markdown-preview';
 import AddComment from "../components/AddComment";
 import avatars from "../utils/avatars";
 import serviceLogos from "../utils/serviceLogos";
+import fetchData from "../custom_functions/fetchData";
 
 const categoryItem = [
   {
@@ -93,6 +94,14 @@ const BlogDetail = () => {
       } catch (error) {
         console.log(error)
       }
+    }
+  }
+
+  async function fetchNewBlog(id) {
+    try {
+      fetchData(`${url}/blog/${id}`, console.log, (data) => {setData(data.data)})
+    } catch (error) {
+      console.log(error)
     }
   }
 
@@ -202,7 +211,7 @@ const BlogDetail = () => {
             {
               hotBlogs.map((blog, index) =>
                 <div className="mt-8" key={index}>
-                  <Link to={`/blog/${blog.id}`}>
+                  <Link to={`/blog/${blog.id}`} onClick={() => fetchNewBlog(blog.id)}>
                     <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
                       {blog.category}
                     </div>
@@ -255,7 +264,7 @@ const BlogDetail = () => {
                     </div>
       
                     <div>
-                      <Link to={`/blog/${blog.id}`}>
+                      <Link to={`/blog/${blog.id}`} onClick={() => fetchNewBlog(blog.id)}>
                         <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
                           {blog.category}
                         </div>
