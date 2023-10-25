@@ -15,21 +15,21 @@ const About = () => {
           realationships with customers"
         />
 
-        <div className="my-14 sm:flex sm:px-8 md:px-0 lg:px-32">
-          <div className="sm:w-1/2 flex justify-center items-center">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold">
+        <div className="my-8 lg:my-14 sm:flex px-8 md:px-0 lg:px-32">
+          <div className="sm:w-1/2 flex justify-center items-center mb-4">
+            <h1 className="text-3xl sm:text-6xl md:text-7xl font-bold text-center lg:text-left">
               Together We Are Strong
             </h1>
           </div>
           <div className="sm:w-1/2">
-            <h1 className="text-3xl sm:text-4xl md:text-4xl leading-9">
-              Our crew is always getting bigger, and we all share one big dream:
+            <h1 className="text-lg sm:text-4xl md:text-4xl lg:leading-10 text-center lg:text-left">
+              Our crew is always getting bigger, and we all share one big dream
               to help your business reach a level of success it's never seen
               before, right at the very top.
             </h1>
-            <h2 className="mt-5 text-gray-600 text-lg md:text-base">
-              WebyBuild is like the brainchild of Harsh Jha, born in 2021. We're
-              not just your run-of-the-mill web development company; we're more
+            <h2 className="mt-5 text-gray-600 text-sm md:text-base text-justify lg:text-left">
+              Webybuild is like the brainchild of Harsh J, born in 2021. We're
+              not just your run-of-the-mill web development company, we're more
               like digital architects with a global twist. Hailing from the
               heart of India, our crew defies distance by collaborating with
               businesses and individuals from all over the world. We work our
@@ -44,7 +44,7 @@ const About = () => {
         </div>
 
         <div>
-          <div className="flex px-32">
+          <div className="flex flex-col lg:flex-row justify-center px-4 lg:px-32">
             <div className="flex-1 flex justify-center items-center gap-6 mt-6">
               <div className="w-1/4">
                 <img
@@ -73,7 +73,7 @@ const About = () => {
                 </svg>
               </div>
 
-              <h1 className="text-3xl font-light">
+              <h1 className="text-3xl font-light text-center">
                 We're not just a company, we're your partners in the digital
                 frontier.
               </h1>

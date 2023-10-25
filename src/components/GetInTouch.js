@@ -6,7 +6,7 @@ const GetInTouch = ({ title, para, paratwo, but, space }) => {
   return (
     <>
       <div
-        className={`w-full bg-gray-900 py-${space} px-4 lg:px-32 flex flex-col lg:flex-row`}
+        className={`w-full bg-gray-900 py-12 px-4 lg:px-32 flex flex-col lg:flex-row`}
       >
         <div className="text-white flex-1 flex flex-col">
           <div className="flex gap-3">

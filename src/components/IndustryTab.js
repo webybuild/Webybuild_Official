@@ -385,7 +385,6 @@ export default function ResponsiveVerticalTabs() {
         para="Don’t worry we are here for you!"
         paratwo="Contact us with different medium whatsapp, call or mail, We are open."
         but="CONNECT WITH US NOW"
-        space="12"
       />
     </>
   );

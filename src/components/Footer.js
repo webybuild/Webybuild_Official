@@ -12,8 +12,8 @@ import cloud from "../assets/images/footer/cloud.svg";
 const Footer = () => {
   return (
     <>
-      <footer className="px-8 py-8 mx-auto max-w-7xl place-content-center">
-        <h1 className="flex justify-center items-center text-[2rem] mb-12 text-center">
+      <footer className="px-6 lg:px-12 py-8 mx-auto place-content-center">
+        <h1 className="flex justify-center items-center text-2xl lg:text-[2rem] mb-12 text-center">
           Build Smarter. Better. Faster. Websites
         </h1>
         <div className="grid grid-cols-2 gap-0 md:gap-10 mb-3 md:grid-cols-3 lg:grid-cols-12 lg:gap-20">
@@ -129,14 +129,16 @@ const Footer = () => {
             </p>
             <div className="my-4">
               <div className="flex items-center gap-2">
-                <img className="w-[2rem]" src={support} alt="" />
-                <h1 className="text-gray-500">hello@webybuild.com</h1>
+                <img className="w-[1.8rem] md:w-[2rem]" src={support} alt="" />
+                <h1 className="text-gray-500 text-sm lg:text-base">
+                  hello@webybuild.com
+                </h1>
               </div>
             </div>
             <div className="my-4">
               <div className="flex items-center gap-2">
                 <img className="w-[2rem]" src={cloud} alt="" />
-                <h1 className="font-light">
+                <h1 className="font-light text-sm lg:text-base">
                   USA, Canada, Germany, Australia, Switzerland, Ireland
                 </h1>
               </div>
@@ -188,18 +190,12 @@ const Footer = () => {
             © Copyright 2023 Webybuild. All Rights Reserved.
           </p>
           <div className="flex items-start justify-start space-x-6 md:items-center md:justify-center">
-            <a
-              href="/"
+            <Link
+              to="/terms"
               className="text-sm text-gray-600 transition text_effect"
             >
-              Terms
-            </a>
-            <a
-              href="/"
-              className="text-sm text-gray-600 transition text_effect"
-            >
-              Privacy
-            </a>
+              Terms and Conditions
+            </Link>
           </div>
         </div>
       </footer>

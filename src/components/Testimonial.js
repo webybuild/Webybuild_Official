@@ -113,7 +113,7 @@ const Testimonial = () => {
               <div key={index} className="testimonial-slide">
                 <figure className="max-w-screen-md mx-auto">
                   <svg
-                    className="h-12 mx-auto mb-3 text-gray-400 dark:text-gray-600"
+                    className="h-12 mx-auto mb-3 text-gray-400 "
                     viewBox="0 0 24 27"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -124,7 +124,7 @@ const Testimonial = () => {
                     ></path>
                   </svg>
                   <blockquote>
-                    <p className="text-lg lg:text-2xl font-light text-gray-900 dark:text-white">
+                    <p className="text-lg lg:text-2xl font-light text-white ">
                       "{testimonial.quote}"
                     </p>
                   </blockquote>
@@ -134,11 +134,11 @@ const Testimonial = () => {
                       src={testimonial.image}
                       alt="profilepicture"
                     />
-                    <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
-                      <div className="pr-3 font-medium text-gray-900 dark:text-white">
+                    <div className="flex items-center divide-x-2 divide-gray-500">
+                      <div className="pr-3 font-medium text-white">
                         {testimonial.author}
                       </div>
-                      <div className="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">
+                      <div className="pl-3 text-sm font-light text-gray-500 ">
                         {testimonial.position}
                       </div>
                     </div>
