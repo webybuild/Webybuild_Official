@@ -16,6 +16,7 @@ import { url } from "../utils/config";
 import MarkdownPreview from '@uiw/react-markdown-preview';
 import AddComment from "../components/AddComment";
 import avatars from "../utils/avatars";
+import serviceLogos from "../utils/serviceLogos";
 
 const categoryItem = [
   {
@@ -247,7 +248,7 @@ const BlogDetail = () => {
                     <div className="w-2/6">
                       <img
                         className="w-full h-full rounded-full"
-                        src={avatars[blog.avatar] || avatars['anon']}
+                        src={serviceLogos[blog.category]}
                         alt=""
                         srcset=""
                       />

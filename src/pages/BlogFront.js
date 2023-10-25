@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { url } from "../utils/config";
 import MarkdownPreview from '@uiw/react-markdown-preview';
-import avatars from "../utils/avatars";
+import serviceLogos from "../utils/serviceLogos";
 
 
 const categoryItem = [
@@ -227,7 +227,7 @@ const BlogFront = () => {
                 <div className="w-1/5">
                   <img
                     className="w-full h-full"
-                    src={avatars[blog.avatar] || avatars['anon']}
+                    src={serviceLogos[blog.category]}
                     alt=""
                     srcset=""
                   />
