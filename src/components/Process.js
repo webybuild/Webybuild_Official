@@ -18,7 +18,7 @@ const Process = () => {
             <img className="w-3/4" src={flowProcess} alt="" />
           </div>
           <div className="flex-1 flex justify-center items-center">
-            <div className="text-center lg:text-left">
+            <div className="text-left">
               <h1 className="text-lg md:text-2xl font-bold mb-4 uppercase drop-shadow-md">
                 Turning Ideas into User-Friendly Realities
               </h1>

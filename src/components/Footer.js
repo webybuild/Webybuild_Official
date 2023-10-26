@@ -63,7 +63,7 @@ const Footer = () => {
             </Link>
 
             <Link
-              to="/blog"
+              to="/blogs"
               className="flex mb-3 text-sm font-normal tracking-widest text-black transition md:mb-2 text_effect"
             >
               Blogs

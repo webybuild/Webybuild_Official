@@ -1,6 +1,6 @@
 import React from "react";
 import ServiceBanner from "../components/ServiceBanner";
-import ServiceFeed from "../components/WebDesignServiceFeed";
+import WebDesignServiceFeed from "../components/WebDesignServiceFeed";
 import TechStack from "../components/TechStack";
 import GetInTouch from "../components/GetInTouch";
 
@@ -15,8 +15,9 @@ const WebDesign = () => {
         Our skilled team of designers and developers keeps up with the
         latest web design trends and technologies to bring your vision to
         life. Let's turn your ideas into reality."
+          bread="Web Design"
         />
-        <ServiceFeed />
+        <WebDesignServiceFeed />
         <TechStack />
         <GetInTouch
           title="Get In Touch"

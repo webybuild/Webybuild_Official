@@ -254,7 +254,7 @@ const Drawer = ({ Logo }) => {
               <ListItem sx={{ padding: "4px 16px", marginTop: "15px" }}>
                 <Button
                   onClick={() => {
-                    navigate(`/blog`);
+                    navigate(`/blogs`);
                     setOpenDrawer(!openDrawer);
                   }}
                   variant="outlined"

@@ -56,9 +56,9 @@ const Header = () => {
             business potential with our expert team.
           </h2>
 
-          <div className="flex justify-center gap-8 md:gap-14">
+          <div className="flex flex-col sm:flex-row justify-center gap-0 md:gap-14">
             <div>
-              <button className="w-32 md:w-48 shadow-[10px_12px_1px_0px_#983a8d12] md:shadow-[36px_12px_1px_0px_#983a8d12] border gradient-border-button mt-5 text-black font-semibold py-2 px-4 transition duration-300 ease-in-out transform hover:drop-shadow-md uppercase">
+              <button className="w-48 shadow-[10px_12px_1px_0px_#983a8d12] md:shadow-[36px_12px_1px_0px_#983a8d12] border gradient-border-button mt-5 text-black font-semibold py-2 px-4 transition duration-300 ease-in-out transform hover:drop-shadow-md uppercase">
                 <div className="flex justify-center items-center gap-1 md:gap-3">
                   <div>
                     <img className="w-6" src={quote} alt="" />
@@ -73,7 +73,7 @@ const Header = () => {
               </button>
             </div>
             <div>
-              <button className="w-40 md:w-48 shadow-[10px_12px_1px_0px_#983a8d12] md:shadow-[36px_12px_1px_0px_#983a8d12] border gradient-border-button mt-5 text-black font-semibold py-2 px-4 transition duration-300 ease-in-out transform hover:drop-shadow-md uppercase">
+              <button className="w-48 shadow-[10px_12px_1px_0px_#983a8d12] md:shadow-[36px_12px_1px_0px_#983a8d12] border gradient-border-button mt-5 text-black font-semibold py-2 px-4 transition duration-300 ease-in-out transform hover:drop-shadow-md uppercase">
                 <div className="flex justify-center items-center gap-1 md:gap-3">
                   <div>
                     <img className="w-6" src={whatsapp} alt="" />
@@ -94,9 +94,9 @@ const Header = () => {
             </div>
           </div>
           <div className="flex gap-4 mt-7 justify-center lg:mb-8 xl:mb-0">
-            <img className="w-[13%] ml-4" src={clutch} alt="" />
+            <img className="w-[13%] lg:mr-4" src={clutch} alt="" />
             <img className="w-[15%]" src={desginfirm} alt="" />
-            <img className="w-[20%] lg:w-[18%] ml-5" src={manifest} alt="" />
+            <img className="w-[20%] lg:w-[18%] lg:ml-5" src={manifest} alt="" />
             <img className="w-[21%]" src={googlereview} alt="" />
           </div>
         </div>
