@@ -3,6 +3,7 @@ import CustomDrawer from "@mui/material/Drawer";
 import {
   Box,
   Button,
+  Divider,
   IconButton,
   List,
   ListItem,
@@ -11,7 +12,6 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import LayersIcon from "@mui/icons-material/Layers";
 import {
   ChevronLeft,
   DesignServicesOutlined,
@@ -23,6 +23,9 @@ import {
   Diversity1Outlined,
   HomeRounded,
   PersonSearchRounded,
+  EditNoteSharp,
+  TrendingUp,
+  SupportAgent,
 } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -35,11 +38,11 @@ const serviceItems = [
     icon: <DesignServicesOutlined />,
   },
   {
-    text: "Custom Web Development",
+    text: "Web Development",
     icon: <PhonelinkOutlined />,
   },
   {
-    text: "Inventry Management",
+    text: "Inventory Management",
     icon: <InventoryOutlined />,
   },
   {
@@ -86,6 +89,16 @@ const Drawer = ({ Logo }) => {
     return pathname.startsWith("/services"); // Check if the current path starts with "/services"
   };
 
+  const isBlogPage = () => {
+    return pathname === "/blog";
+  };
+  const isGrowthPage = () => {
+    return pathname === "/growth";
+  };
+  const isContactsPage = () => {
+    return pathname === "/contacts";
+  };
+
   return (
     <>
       <CustomDrawer
@@ -117,7 +130,7 @@ const Drawer = ({ Logo }) => {
 
           <Box>
             <List>
-              <ListItem>
+              <ListItem sx={{ padding: "4px 16px" }}>
                 <Button
                   onClick={() => {
                     navigate(`/`);
@@ -128,8 +141,8 @@ const Drawer = ({ Logo }) => {
                   sx={{
                     color: isHomePage() ? "#ab4c8a" : "#787878",
                     border: "none",
+                    fontWeight: "300",
                     justifyContent: "center",
-
                     "&:hover": {
                       color: "#ab4c8a",
                       border: "none",
@@ -139,7 +152,7 @@ const Drawer = ({ Logo }) => {
                   Home
                 </Button>
               </ListItem>
-              <ListItem>
+              <ListItem sx={{ padding: "4px 16px", marginBottom: "15px" }}>
                 <Button
                   onClick={() => {
                     navigate(`/about`);
@@ -151,6 +164,7 @@ const Drawer = ({ Logo }) => {
                   }
                   sx={{
                     color: isAboutPage() ? "#ab4c8a" : "#787878",
+                    fontWeight: "300",
                     border: "none",
                     justifyContent: "center",
 
@@ -163,24 +177,22 @@ const Drawer = ({ Logo }) => {
                   About
                 </Button>
               </ListItem>
-              <ListItem>
-                <Button
-                  // onClick={handleClick}
-                  variant="outlined"
-                  startIcon={<LayersIcon />}
-                  sx={{
-                    color: isServicesPage() ? "#ab4c8a" : "#787878",
-                    justifyContent: "center",
+              <Divider
+                sx={{
+                  color: isServicesPage() ? "#ab4c8a" : "#787878",
+                  justifyContent: "center",
+                  border: "none",
+                  fontSize: "14px",
+                  fontWeight: "300",
+                  "&:hover": {
+                    // color: "#ab4c8a",
                     border: "none",
-                    "&:hover": {
-                      color: "#ab4c8a",
-                      border: "none",
-                    },
-                  }}
-                >
-                  Services
-                </Button>
-              </ListItem>
+                  },
+                }}
+              >
+                SERVICES
+              </Divider>
+              {/* <Divider variant="middle" /> */}
               <ListItem sx={{ flexDirection: "column" }}>
                 {serviceItems.map(({ text, icon }) => {
                   const lcText = text.toLowerCase().replace(/ /g, "-");
@@ -195,22 +207,19 @@ const Drawer = ({ Logo }) => {
                       }}
                       key={text}
                       sx={{
-                        backgroundColor:
-                          active === lcText
-                            ? "#c2c3cb4d!important"
-                            : "transparent",
                         justifyContent: "center",
+                        padding: "5px 16px",
                         "& .MuiListItemIcon-root": {
                           minWidth: "24px",
-                          marginRight: "8px",
-                          // color: "#ab4c8a",
+                          marginRight: "15px",
                         },
                         "& .MuiTypography-root": {
                           width: "100%",
                           fontSize: "14px",
+                          fontWeight: "300",
                         },
                         "&:hover": {
-                          backgroundColor: "#0830ff4d !important",
+                          backgroundColor: "#f7f7f8f2!important",
                           // transform: "translateX(10px)",
                           // color: "red",
                         },
@@ -221,32 +230,101 @@ const Drawer = ({ Logo }) => {
                       }}
                     >
                       <ListItemIcon
-                      // sx={{
-                      //   color: active === lcText ? "red!important" : "grey",
-                      // }}
+                        sx={{
+                          color: active === lcText ? "#ab4c8a" : "#787878",
+                        }}
                       >
                         {icon}
                       </ListItemIcon>
                       <Typography
-                        variant="subtitle1"
+                        // variant="subtitle1"
                         color="#000000"
-                        fontSize="14px"
-                        // sx={{
-                        //   // color: active === lcText ? "red!important" : "grey",
-                        //   backgroundImage:
-                        //     active === lcText
-                        //       ? "linear-gradient(to right, #ef4949 -1%, #5250E1 76%)"
-                        //       : "linear-gradient(to right, #757575 -1%, #757575 76%)",
-                        //   WebkitBackgroundClip: "text",
-                        //   backgroundClip: "text",
-                        //   color: "transparent",
-                        // }}
+                        sx={{
+                          color: active === lcText ? "#ab4c8a" : "#787878",
+                          // textTransform: "uppercase",
+                        }}
                       >
                         {text}
                       </Typography>
                     </ListItem>
                   );
                 })}
+              </ListItem>
+              <Divider variant="middle" sx={{ marginTop: "5px" }} />
+              <ListItem sx={{ padding: "4px 16px", marginTop: "15px" }}>
+                <Button
+                  onClick={() => {
+                    navigate(`/blogs`);
+                    setOpenDrawer(!openDrawer);
+                  }}
+                  variant="outlined"
+                  startIcon={
+                    <EditNoteSharp sx={{ fontSize: "27px !important" }} />
+                  }
+                  sx={{
+                    color: isBlogPage() ? "#ab4c8a" : "#787878",
+                    fontWeight: "300",
+                    border: "none",
+                    justifyContent: "center",
+
+                    "&:hover": {
+                      color: "#ab4c8a",
+                      border: "none",
+                    },
+                  }}
+                >
+                  Blogs
+                </Button>
+              </ListItem>
+              <ListItem sx={{ padding: "4px 16px" }}>
+                <Button
+                  onClick={() => {
+                    navigate(`/growth`);
+                    setOpenDrawer(!openDrawer);
+                  }}
+                  variant="outlined"
+                  startIcon={
+                    <TrendingUp sx={{ fontSize: "27px !important" }} />
+                  }
+                  sx={{
+                    color: isGrowthPage() ? "#ab4c8a" : "#787878",
+                    fontWeight: "300",
+                    border: "none",
+                    justifyContent: "center",
+
+                    "&:hover": {
+                      color: "#ab4c8a",
+                      border: "none",
+                    },
+                  }}
+                >
+                  Growth
+                </Button>
+              </ListItem>
+              <ListItem>
+                <Button
+                  onClick={() => {
+                    navigate(`/contacts`);
+                    setOpenDrawer(!openDrawer);
+                  }}
+                  variant="outlined"
+                  startIcon={
+                    <SupportAgent sx={{ fontSize: "25px !important" }} />
+                  }
+                  sx={{
+                    color: isContactsPage() ? "#ab4c8a" : "#787878",
+                    fontWeight: "300",
+                    border: "none",
+                    justifyContent: "center",
+
+                    "&:hover": {
+                      color: "#ab4c8a",
+                      border: "none",
+                    },
+                  }}
+                >
+                  Contacts
+                </Button>
               </ListItem>
             </List>
           </Box>

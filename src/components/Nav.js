@@ -92,7 +92,7 @@ function Nav() {
 
   const navbarClass = isSticky
     ? "sticky top-0 transition-all duration-300 ease-in-out"
-    : "sticky top-0 md:top-3 shadow-lg transition-all duration-300 ease-in-out";
+    : "sticky top-0 shadow-lg transition-all duration-300 ease-in-out";
 
   const isNonMobile = useMediaQuery("(min-width: 1028px)");
 
@@ -124,11 +124,11 @@ function Nav() {
     <>
       {isNonMobile ? (
         <div
-          className={`container flex justify-between w-full rounded-none md:w-10/12 mx-auto md:rounded-xl bg-[#ffffffe9] backdrop-blur-md z-10 ${navbarClass}`}
+          className={`container flex justify-between w-full rounded-none md:w-10/12 mx-auto md:rounded-xl bg-[#ffffffd0] backdrop-blur-md z-10 ${navbarClass}`}
         >
           <div className="flex px-4 py-1">
             <a href="/">
-              <img className="h-custom-1" src={logo} alt="webybuild-icon" />
+              <img className="h-[50px]" src={logo} alt="webybuild-icon" />
             </a>
           </div>
           <div className="flex items-center text-custom-1">
@@ -228,7 +228,7 @@ function Nav() {
                       sx={{
                         backgroundColor:
                           active === lcText
-                            ? "#0830ff4d !important"
+                            ? "#eaeaea !important"
                             : "transparent",
                         justifyContent: "center",
                         "& .MuiListItemIcon-root": {
@@ -241,7 +241,7 @@ function Nav() {
                           fontSize: "14px",
                         },
                         "&:hover": {
-                          backgroundColor: "#0830ff4d !important",
+                          backgroundColor: "#eaeaea !important",
                           // transform: "translateX(10px)",
                           // color: "red",
                         },
@@ -267,7 +267,7 @@ function Nav() {
             <div>
               <Button
                 onClick={() => {
-                  navigate(`/blog`);
+                  navigate(`/blogs`);
                 }}
                 variant="outlined"
                 startIcon={
@@ -331,205 +331,8 @@ function Nav() {
                 <img className="h-custom-1" src={logo} alt="webybuild-icon" />
               </a>
             </div>
-            {isNonMobile ? (
-              <div className="flex items-center text-custom-1">
-                <div>
-                  <Button
-                    onClick={() => {
-                      navigate(`/`);
-                    }}
-                    variant="outlined"
-                    startIcon={<HomeRounded sx={{ marginBottom: "4px" }} />}
-                    sx={{
-                      color: isHomePage() ? "#ab4c8a" : "#787878",
-                      border: "none",
-                      justifyContent: "center",
 
-                      "&:hover": {
-                        color: "#ab4c8a",
-                        border: "none",
-                      },
-                    }}
-                  >
-                    Home
-                  </Button>
-                </div>
-                <div>
-                  <Button
-                    onClick={() => {
-                      navigate(`/about`);
-                    }}
-                    variant="outlined"
-                    startIcon={
-                      <PersonSearchRounded sx={{ marginBottom: "3px" }} />
-                    }
-                    sx={{
-                      color: isAboutPage() ? "#ab4c8a" : "#787878",
-                      border: "none",
-                      justifyContent: "center",
-
-                      "&:hover": {
-                        color: "#ab4c8a",
-                        border: "none",
-                      },
-                    }}
-                  >
-                    About
-                  </Button>
-                </div>
-                <div onMouseLeave={handleClose}>
-                  <Button
-                    // onClick={handleClick}
-                    onMouseEnter={handleClick}
-                    variant="outlined"
-                    startIcon={<LayersIcon />}
-                    sx={{
-                      color: isServicesPage() ? "#ab4c8a" : "#787878",
-                      border: "none",
-                      "&:hover": {
-                        color: "#ab4c8a",
-                        border: "none",
-                      },
-                    }}
-                  >
-                    Services
-                    <ArrowDropDownOutlined
-                      sx={{
-                        fontSize: "25px",
-                        transform: isRotated
-                          ? "rotate(180deg)"
-                          : "rotate(0deg)",
-                        transition: "transform 0.3s ease",
-                      }}
-                    />
-                  </Button>
-                  <Menu
-                    anchorEl={anchorEl}
-                    open={isOpen}
-                    onClose={handleClose}
-                    MenuListProps={{ onMouseLeave: () => handleClose() }}
-                    disableScrollLock={true}
-                    anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-                    sx={{
-                      ".css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper": {
-                        width: "250px",
-                        marginLeft: "-50px",
-                        top: "68px !important",
-                      },
-                    }}
-                  >
-                    {serviceItems.map(({ text, icon }) => {
-                      const lcText = text.toLowerCase().replace(/ /g, "-");
-                      // console.log("lcText:", lcText);
-                      // console.log("active:", active);
-                      return (
-                        <MenuItem
-                          onClick={() => {
-                            navigate(`/services/${lcText}`);
-                            handleClose();
-                            setActive(lcText);
-                          }}
-                          key={text}
-                          sx={{
-                            backgroundColor:
-                              active === lcText
-                                ? "#0830ff4d !important"
-                                : "transparent",
-                            justifyContent: "center",
-                            "& .MuiListItemIcon-root": {
-                              minWidth: "24px",
-                              marginRight: "8px",
-                              color: "#ab4c8a",
-                            },
-                            "& .MuiTypography-root": {
-                              width: "100%",
-                              fontSize: "14px",
-                            },
-                            "&:hover": {
-                              backgroundColor: "#0830ff4d !important",
-                              // transform: "translateX(10px)",
-                              // color: "red",
-                            },
-                            // transition: "transform 0.3s ease-in-out",
-                            "&:focus": {
-                              backgroundColor: "transparent",
-                            },
-                          }}
-                        >
-                          <ListItemIcon>{icon}</ListItemIcon>
-                          <Typography
-                            variant="subtitle1"
-                            color="#000000"
-                            fontSize="14px"
-                          >
-                            {text}
-                          </Typography>
-                        </MenuItem>
-                      );
-                    })}
-                  </Menu>
-                </div>
-                <div>
-                  <Button
-                    onClick={() => {
-                      navigate(`/blog`);
-                    }}
-                    variant="outlined"
-                    startIcon={
-                      <EditNoteSharp sx={{ fontSize: "27px !important" }} />
-                    }
-                    sx={{
-                      color: "#ab4c8a",
-                      border: "1px solid #b6b6b6",
-                    }}
-                  >
-                    Blogs
-                  </Button>
-                </div>
-                <div>
-                  <Button
-                    variant="outlined"
-                    startIcon={
-                      <TrendingUp sx={{ fontSize: "27px !important" }} />
-                    }
-                    sx={{
-                      color: "white",
-                      backgroundColor: "black",
-                      fontWeight: "bolder",
-                      fontSize: "0.786rem",
-                      margin: "0px 10px",
-                      "&:hover": {
-                        backgroundColor: "#546cea",
-                      },
-                    }}
-                  >
-                    Growth
-                  </Button>
-                </div>
-                <div>
-                  <Button
-                    onClick={() => {
-                      navigate(`/contacts`);
-                    }}
-                    variant="outlined"
-                    sx={{
-                      color: isContactPage() ? "#ab4c8a" : "#787878",
-                      border: "none",
-                      justifyContent: "center",
-
-                      "&:hover": {
-                        color: "#ab4c8a",
-                        border: "none",
-                      },
-                    }}
-                  >
-                    Contacts
-                  </Button>
-                </div>
-              </div>
-            ) : (
-              <Drawer Logo={logo} />
-            )}
+            <Drawer Logo={logo} />
           </div>
         </Headroom>
       )}

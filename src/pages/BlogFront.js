@@ -1,12 +1,18 @@
 import React from "react";
+import { useState, useEffect } from 'react';
 import bannerImg from "../assets/images/blog/Rectangle 20.png";
 import codingImg from "../assets/images/blog/codingSvg.svg";
 import businessImg from "../assets/images/blog/businessSvg.svg";
 import websiteImg from "../assets/images/blog/websiteSvg.svg";
 import blogImg from "../assets/images/blog/blogsSvg.svg";
-import graphicImg from "../assets/images/blog/graphicsSvg.svg";
+import graphicImg from "../assets/images/blog/graphicsSvg.png";
 import growthImg from "../assets/images/blog/growthSvg.svg";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { url } from "../utils/config";
+import MarkdownPreview from '@uiw/react-markdown-preview';
+import serviceLogos from "../utils/serviceLogos";
+
 
 const categoryItem = [
   {
@@ -42,6 +48,32 @@ const categoryItem = [
 ];
 
 const BlogFront = () => {
+
+  const [ blogs, setBlogs ]  = useState([])
+  const [ hotBlogs, setHotBlogs ]  = useState([])
+  const [ editorBlogs, setEditorBlogs ]  = useState([])
+
+  useEffect(() => {
+      fetchBlogs()
+  }, [])
+
+
+  async function fetchBlogs() {
+    try {
+      const [ blgs, htblgs, edtrblgs ] = await Promise.all([
+        axios.get(`${url}/blogs?type=recent&page=1&limit=5`),
+        axios.get(`${url}/blogs?type=hot&page=1&limit=4`),
+        axios.get(`${url}/blogs?type=editor&page=1&limit=4`)
+      ])
+      console.log(blgs, htblgs, edtrblgs);
+      setBlogs(blgs.data.data);
+      setHotBlogs(htblgs.data.data);
+      setEditorBlogs(edtrblgs.data.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <>
       <div className="container mx-auto overflow-hidden px-4 sm:px-8 md:px-16 lg:px-28 mt-8 sm:mt-8 md:mt-12 lg:mt-16">
@@ -112,126 +144,33 @@ const BlogFront = () => {
       <div className="container px-4 xl:px-40 mx-auto flex my-16">
         <div className="flex-[3]">
           <h1 className="text-center md:text-left text-2xl">Recent Posts</h1>
-          <div className="flex flex-col justify-center items-center sm:flex-row mt-4 sm:mt-8">
-            <div className="w-4/5 sm:w-2/6">
-              <img className="w-full" src={bannerImg} alt="bannerimage" />
-            </div>
-            <div className="flex-1 p-4 m-4">
-              <div className="flex items-center text-xs sm:text-sm gap-2 sm:gap-3">
-                <p className="font-light">2023-09-28</p>
-                <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                <p className="font-[400] uppercase text-red-900">Coding</p>
+          {
+            blogs.map((blog, index) => 
+            <div key={index} className="flex flex-col justify-center items-center sm:flex-row mt-4 sm:mt-8">
+              <div className="w-4/5 sm:w-2/6">
+                <img className="w-full" src={blog.imageUrl} alt="bannerimage" />
               </div>
-              <div>
-                <Link to="/blog/blog-detail">
-                  <h2 className="text-2xl sm:text-3xl mt-2 sm:mt-4">
-                    Why you should do Blogging
-                  </h2>
-                </Link>
-                <p className="my-3 sm:my-3 font-light">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Excepturi quod ullam alias sint impedit omnis facere repellat!
-                </p>
-                <button className="border-b-2 border-red-800">Read More</button>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col justify-center items-center sm:flex-row mt-4 sm:mt-8">
-            <div className="w-4/5 sm:w-2/6">
-              <img className="w-full" src={bannerImg} alt="bannerimage" />
-            </div>
-            <div className="flex-1 p-4 m-4">
-              <div className="flex items-center text-xs sm:text-sm gap-2 sm:gap-3">
-                <p className="font-light">2023-09-28</p>
-                <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                <p className="font-[400] uppercase text-red-900">Coding</p>
-              </div>
-              <div>
-                <a href="/">
-                  <h2 className="text-2xl sm:text-3xl mt-2 sm:mt-4">
-                    Why you should do Blogging
-                  </h2>
-                </a>
-                <p className="my-3 sm:my-3 font-light">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Excepturi quod ullam alias sint impedit omnis facere repellat!
-                </p>
-                <button className="border-b-2 border-red-800">Read More</button>
+              <div className="flex-1 p-4 m-4">
+                <div className="flex items-center text-xs sm:text-sm gap-2 sm:gap-3">
+                  <p className="font-light">{blog.date}</p>
+                  <div className="w-1 h-1 bg-red-900 rounded-full"></div>
+                  <p className="font-[400] uppercase text-red-900">{blog.category}</p>
+                </div>
+                <div>
+                  <Link to={`/blog/${blog.id}`}>
+                    <h2 className="text-2xl sm:text-3xl mt-2 sm:mt-4">
+                      {blog.title}
+                    </h2>
+                  </Link>
+                  <p className="my-3 sm:my-3 font-light">
+                    <MarkdownPreview source={blog.body[0]} /> 
+                  </p>
+                  <Link to={`/blog/${blog.id}`} className="border-b-2 border-red-800">Read More</Link>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="flex flex-col justify-center items-center sm:flex-row mt-4 sm:mt-8">
-            <div className="w-4/5 sm:w-2/6">
-              <img className="w-full" src={bannerImg} alt="bannerimage" />
-            </div>
-            <div className="flex-1 p-4 m-4">
-              <div className="flex items-center text-xs sm:text-sm gap-2 sm:gap-3">
-                <p className="font-light">2023-09-28</p>
-                <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                <p className="font-[400] uppercase text-red-900">Coding</p>
-              </div>
-              <div>
-                <a href="/">
-                  <h2 className="text-2xl sm:text-3xl mt-2 sm:mt-4">
-                    Why you should do Blogging
-                  </h2>
-                </a>
-                <p className="my-3 sm:my-3 font-light">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Excepturi quod ullam alias sint impedit omnis facere repellat!
-                </p>
-                <button className="border-b-2 border-red-800">Read More</button>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col justify-center items-center sm:flex-row mt-4 sm:mt-8">
-            <div className="w-4/5 sm:w-2/6">
-              <img className="w-full" src={bannerImg} alt="bannerimage" />
-            </div>
-            <div className="flex-1 p-4 m-4">
-              <div className="flex items-center text-xs sm:text-sm gap-2 sm:gap-3">
-                <p className="font-light">2023-09-28</p>
-                <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                <p className="font-[400] uppercase text-red-900">Coding</p>
-              </div>
-              <div>
-                <a href="/">
-                  <h2 className="text-2xl sm:text-3xl mt-2 sm:mt-4">
-                    Why you should do Blogging
-                  </h2>
-                </a>
-                <p className="my-3 sm:my-3 font-light">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Excepturi quod ullam alias sint impedit omnis facere repellat!
-                </p>
-                <button className="border-b-2 border-red-800">Read More</button>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col justify-center items-center sm:flex-row mt-4 sm:mt-8">
-            <div className="w-4/5 sm:w-2/6">
-              <img className="w-full" src={bannerImg} alt="bannerimage" />
-            </div>
-            <div className="flex-1 p-4 m-4">
-              <div className="flex items-center text-xs sm:text-sm gap-2 sm:gap-3">
-                <p className="font-light">2023-09-28</p>
-                <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                <p className="font-[400] uppercase text-red-900">Coding</p>
-              </div>
-              <div>
-                <a href="/">
-                  <h2 className="text-2xl sm:text-3xl mt-2 sm:mt-4">
-                    Why you should do Blogging
-                  </h2>
-                </a>
-                <p className="my-3 sm:my-3 font-light">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Excepturi quod ullam alias sint impedit omnis facere repellat!
-                </p>
-                <button className="border-b-2 border-red-800">Read More</button>
-              </div>
-            </div>
-          </div>
+            )
+          }
         </div>
         <div className="flex-[1] hidden lg:block">
           <div>
@@ -239,74 +178,26 @@ const BlogFront = () => {
               <p className="font-light text-sm">What's hot</p>
               <h1 className="font-semibold text-2xl">Most Popular</h1>
             </div>
-            <div className="mt-8">
-              <a href="/">
-                <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                  coding
-                </div>
-                <p className="my-2 font-[400]">
-                  A Journey Through Bohemian Beauti Exploring The Streets of
-                  Prague
-                </p>
-              </a>
+            {
+              hotBlogs.map((blog, index) =>
+              <div className="mt-8" key={index}>
+                <Link to={`/blog/${blog.id}`}>
+                  <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
+                    {blog.category}
+                  </div>
+                  <p className="my-2 font-[400]">
+                    {blog.title}
+                  </p>
+                </Link>
 
-              <div className="flex text-[13px] items-center gap-2 font-light">
-                <p>Joseph Owen</p>
-                <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                <p>02-10-23</p>
-              </div>
-            </div>
-            <div className="mt-8">
-              <a href="/">
-                <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                  coding
+                <div className="flex text-[13px] items-center gap-2 font-light">
+                  <p>{blog.author}</p>
+                  <div className="w-1 h-1 bg-red-900 rounded-full"></div>
+                  <p>{blog.date}</p>
                 </div>
-                <p className="my-2 font-[400]">
-                  A Journey Through Bohemian Beauti Exploring The Streets of
-                  Prague
-                </p>
-              </a>
-
-              <div className="flex text-[13px] items-center gap-2 font-light">
-                <p>Joseph Owen</p>
-                <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                <p>02-10-23</p>
               </div>
-            </div>
-            <div className="mt-8">
-              <a href="/">
-                <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                  coding
-                </div>
-                <p className="my-2 font-[400]">
-                  A Journey Through Bohemian Beauti Exploring The Streets of
-                  Prague
-                </p>
-              </a>
-
-              <div className="flex text-[13px] items-center gap-2 font-light">
-                <p>Joseph Owen</p>
-                <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                <p>02-10-23</p>
-              </div>
-            </div>
-            <div className="mt-8">
-              <a href="/">
-                <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                  coding
-                </div>
-                <p className="my-2 font-[400]">
-                  A Journey Through Bohemian Beauti Exploring The Streets of
-                  Prague
-                </p>
-              </a>
-
-              <div className="flex text-[13px] items-center gap-2 font-light">
-                <p>Joseph Owen</p>
-                <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                <p>02-10-23</p>
-              </div>
-            </div>
+              )
+            }
           </div>
           <div className="my-10">
             <div>
@@ -330,114 +221,36 @@ const BlogFront = () => {
               <p className="font-light text-sm">Chosen by the editor</p>
               <h1 className="font-semibold text-2xl">Editors Pick</h1>
             </div>
-            <div className="mt-8 flex justify-center items-center gap-4">
-              <div className="w-2/6">
-                <img
-                  className="w-full h-full"
-                  src={codingImg}
-                  alt=""
-                  srcset=""
-                />
-              </div>
+            {
+              editorBlogs.map((blog, index) => 
+              <div key={index} className="mt-8 flex justify-center items-center gap-4">
+                <div className="w-1/5">
+                  <img
+                    className="w-full h-full"
+                    src={serviceLogos[blog.category]}
+                    alt=""
+                    srcset=""
+                  />
+                </div>
 
-              <div>
-                <a href="/">
-                  <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                    coding
+                <div>
+                  <Link to={`/blog/${blog.id}`}>
+                    <div className="bg-red-400 w-[50%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
+                      {blog.category}
+                    </div>
+                    <p className="my-2 font-[400]">
+                      {blog.title}
+                    </p>
+                  </Link>
+                  <div className="flex text-[13px] items-center gap-2 font-light">
+                    <p>{blog.author.split(' ')[0]}</p>
+                    <div className="w-1 h-1 bg-red-900 rounded-full"></div>
+                    <p>{blog.date}</p>
                   </div>
-                  <p className="my-2 font-[400]">
-                    A Journey Through Bohemian Beauti Exploring The Streets of
-                    Prague
-                  </p>
-                </a>
-                <div className="flex text-[13px] items-center gap-2 font-light">
-                  <p>Joseph Owen</p>
-                  <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                  <p>02-10-23</p>
                 </div>
               </div>
-            </div>
-            <div className="mt-8 flex justify-center items-center gap-4">
-              <div className="w-2/6">
-                <img
-                  className="w-full h-full"
-                  src={codingImg}
-                  alt=""
-                  srcset=""
-                />
-              </div>
-
-              <div>
-                <a href="/">
-                  <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                    coding
-                  </div>
-                  <p className="my-2 font-[400]">
-                    A Journey Through Bohemian Beauti Exploring The Streets of
-                    Prague
-                  </p>
-                </a>
-                <div className="flex text-[13px] items-center gap-2 font-light">
-                  <p>Joseph Owen</p>
-                  <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                  <p>02-10-23</p>
-                </div>
-              </div>
-            </div>
-            <div className="mt-8 flex justify-center items-center gap-4">
-              <div className="w-2/6">
-                <img
-                  className="w-full h-full"
-                  src={codingImg}
-                  alt=""
-                  srcset=""
-                />
-              </div>
-
-              <div>
-                <a href="/">
-                  <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                    coding
-                  </div>
-                  <p className="my-2 font-[400]">
-                    A Journey Through Bohemian Beauti Exploring The Streets of
-                    Prague
-                  </p>
-                </a>
-                <div className="flex text-[13px] items-center gap-2 font-light">
-                  <p>Joseph Owen</p>
-                  <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                  <p>02-10-23</p>
-                </div>
-              </div>
-            </div>
-            <div className="mt-8 flex justify-center items-center gap-4">
-              <div className="w-2/6">
-                <img
-                  className="w-full h-full"
-                  src={codingImg}
-                  alt=""
-                  srcset=""
-                />
-              </div>
-
-              <div>
-                <a href="/">
-                  <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                    coding
-                  </div>
-                  <p className="my-2 font-[400]">
-                    A Journey Through Bohemian Beauti Exploring The Streets of
-                    Prague
-                  </p>
-                </a>
-                <div className="flex text-[13px] items-center gap-2 font-light">
-                  <p>Joseph Owen</p>
-                  <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                  <p>02-10-23</p>
-                </div>
-              </div>
-            </div>
+              )
+            }
           </div>
         </div>
       </div>

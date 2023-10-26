@@ -1,11 +1,23 @@
 import React from "react";
+import { useState, useEffect } from 'react'
 import bannerImg from "../assets/images/blog/Rectangle 20.png";
 import codingImg from "../assets/images/blog/codingSvg.svg";
 import businessImg from "../assets/images/blog/businessSvg.svg";
 import websiteImg from "../assets/images/blog/websiteSvg.svg";
 import blogImg from "../assets/images/blog/blogsSvg.svg";
-import graphicImg from "../assets/images/blog/graphicsSvg.svg";
+import graphicImg from "../assets/images/blog/graphicsSvg.png";
 import growthImg from "../assets/images/blog/growthSvg.svg";
+import axios from "axios";
+import { useRecoilState } from "recoil";
+import hotBlogsAtom from '../atoms/hotBlogsAtom'
+import editorBlogsAtom from '../atoms/editorBlogsAtom'
+import { Link } from "react-router-dom";
+import { url } from "../utils/config";
+import MarkdownPreview from '@uiw/react-markdown-preview';
+import AddComment from "../components/AddComment";
+import avatars from "../utils/avatars";
+import serviceLogos from "../utils/serviceLogos";
+import fetchData from "../custom_functions/fetchData";
 
 const categoryItem = [
   {
@@ -41,30 +53,95 @@ const categoryItem = [
 ];
 
 const BlogDetail = () => {
+  const [ data, setData ] = useState(null)
+  const [ hotBlogs, setHotBlogs ] = useRecoilState(hotBlogsAtom)
+  const [ editorBlogs, setEditorBlogs ] = useRecoilState(editorBlogsAtom)
+  const [ showCommentBox, setShowCommentBox ] = useState(false)
+  const [ comment, setComment ] = useState('')
+  const [ blogId, setBlogId ] = useState()
+  // {title: '', body: [], comments: [], author: '', date: ''}
+  useEffect(() => { 
+    fetchBlogData();
+    fetchEditorBlogs()
+  }, [])
+
+
+  function addComment(name, avatar) {
+    const blog = {...data};
+    blog.comments.push({comment, name, avatar, date: new Date(Date.now()).toDateString()});
+    setData(blog);
+    setComment('')
+  }
+
+
+  async function fetchBlogData() {
+    const id = window.location.pathname.split('/')[2]
+    setBlogId(id)
+    try {
+      const {data} = await axios.get(`${url}/blog/${id}`) ;
+      console.log(data)
+      setData(data.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  async function fetchEditorBlogs() {
+    if(editorBlogs.length === 0){
+      try {
+        const {data} = await axios.get(`${url}/blogs?type=editor&page=1&limit=4`)
+        setEditorBlogs(data.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    if(hotBlogs.length === 0){
+      try {
+        const {data} = await axios.get(`${url}/blogs?type=hot&page=1&limit=4`)
+        setHotBlogs(data.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
+
+  async function fetchNewBlog(id) {
+    try {
+      fetchData(`${url}/blog/${id}`, console.log, (data) => {setData(data.data)})
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
   return (
+    data !== null &&
     <>
+      {
+        showCommentBox && <AddComment data={{comment, blogId}} addComment={addComment} setShowForm={setShowCommentBox} />
+      }
       <div className="container mx-auto overflow-hidden px-4 sm:px-8 md:px-16 lg:px-28">
         <div className="flex flex-col items-center justify-center lg:flex-row mt-4 sm:mt-6">
           <div className="flex-1 p-4 sm:p-6 md:p-10 m-4 sm:m-6">
             <div>
               <h2 className="text-4xl sm:text-6xl mt-2 sm:mt-4">
-                Easiest Way For React State Management
+                {data.title}
               </h2>
             </div>
             <div className="flex items-center gap-4 mt-8">
               <div className="w-[6%]">
-                <img className="w-full h-full" src={growthImg} alt="" />
+                <img className="w-full h-full" src={avatars[data.avatar] || avatars['anon']} alt="" />
               </div>
               <div>
-                <h1 className="text-sm font-light">Martin Brewer</h1>
-                <p className="text-xs font-light">21-08-2023</p>
+                <h1 className="text-sm font-light">{data.author}</h1>
+                <p className="text-xs font-light">{data.date}</p>
               </div>
             </div>
           </div>
           <div className="w-4/5 lg:w-2/6">
             <img
               className="w-full drop-shadow-lg"
-              src={bannerImg}
+              src={data.imageUrl}
               alt="bannerimage"
             />
           </div>
@@ -77,43 +154,12 @@ const BlogDetail = () => {
             {/* <div className="">
               <img className="w-full" src={bannerImg} alt="bannerimage" />
             </div> */}
-            <p className="font-light">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Excepturi quod ullam alias sint impedit omnis facere repellat!
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat
-              veniam earum possimus. Molestias, possimus odit aperiam ut magnam
-              quod in! Obcaecati nemo doloremque vero sequi tempore dicta at
-              iure quo quibusdam fugiat, dolorum veniam totam quidem tempora
-              numquam corporis accusantium odit pariatur ad deleniti ducimus qui
-              similique explicabo delectus. Mollitia.
-            </p>
-            <h1>Why you should learn Zustand?</h1>
-            <p className="font-light">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Excepturi quod ullam alias sint impedit omnis facere repellat!
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat
-              veniam earum possimus. Molestias, possimus odit aperiam ut magnam
-              quod in! Obcaecati nemo doloremque vero sequi tempore dicta at
-              iure quo quibusdam fugiat, dolorum veniam totam quidem tempora
-              numquam corporis accusantium odit pariatur ad deleniti ducimus qui
-              similique explicabo delectus. Mollitia.
-            </p>
-            <img
-              className="w-4/5 sm:w-1/2 my-4"
-              src={bannerImg}
-              alt="bannerimage"
-            />
-            <h1>Is Zustand Better than Redux?</h1>
-            <p className="font-light">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Excepturi quod ullam alias sint impedit omnis facere repellat!
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat
-              veniam earum possimus. Molestias, possimus odit aperiam ut magnam
-              quod in! Obcaecati nemo doloremque vero sequi tempore dicta at
-              iure quo quibusdam fugiat, dolorum veniam totam quidem tempora
-              numquam corporis accusantium odit pariatur ad deleniti ducimus qui
-              similique explicabo delectus. Mollitia.
-            </p>
+            {
+              data && data.body && data.body.map((body, index) => 
+                <p className="font-light" key={index}><MarkdownPreview source={body} /></p>
+              )
+            }
+            
           </div>
           <div className="mt-10">
             <h1 className="text-2xl sm:text-3xl font-semibold mb-4">
@@ -124,107 +170,43 @@ const BlogDetail = () => {
                 className="w-full sm:w-2/3 border border-gray-300 rounded-md px-4 py-2 mr-2 focus:outline-none focus:border-blue-500"
                 type="text"
                 placeholder="Add a comment..."
+                onChange={(e) => setComment(e.target.value)}
+                value={comment}
               />
-              <button className="bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-md">
+              <button 
+                onClick={() => {if(comment.length > 0) setShowCommentBox(true)}}
+                className="bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-md"
+              >
                 Post
               </button>
             </div>
             <div className="px-5 w-full xl:w-2/3 ">
-              <div>
-                <div className="flex items-center gap-4 mt-8">
-                  <div className="w-[10%]">
-                    <img
-                      className="w-full h-full rounded-full"
-                      src={growthImg}
-                      alt="ProfileImage"
-                    />
+              {
+                data && data.comments && data.comments.map((comment, index) => 
+                <div key={index}>
+                  <div className="flex items-center gap-4 mt-8">
+                    <div className="w-[10%]">
+                      <img
+                        className="w-full h-full rounded-full"
+                        src={avatars[comment.avatar]  || avatars['anon']}
+                        alt="ProfileImage"
+                      />
+                    </div>
+                    <div>
+                      <h1 className="text-base sm:text-base font-semibold">
+                        {comment.name}
+                      </h1>
+                      <p className="text-xs sm:text-xs text-gray-500">
+                        {new Date(comment.date).toLocaleDateString()}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h1 className="text-base sm:text-base font-semibold">
-                      Martin Brewer
-                    </h1>
-                    <p className="text-xs sm:text-xs text-gray-500">
-                      21-08-2023
-                    </p>
-                  </div>
+                  <h2 className="text-sm sm:text-base mt-4">
+                    {comment.comment}
+                  </h2>
                 </div>
-                <h2 className="text-sm sm:text-base mt-4">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum
-                  suscipit quod, vitae molestias reprehenderit sapiente!
-                </h2>
-              </div>
-
-              <div>
-                <div className="flex items-center gap-4 mt-8">
-                  <div className="w-[10%]">
-                    <img
-                      className="w-full h-full rounded-full"
-                      src={graphicImg}
-                      alt="ProfileImage"
-                    />
-                  </div>
-                  <div>
-                    <h1 className="text-base sm:text-base font-semibold">
-                      Martin Brewer
-                    </h1>
-                    <p className="text-xs sm:text-sm text-gray-500">
-                      21-08-2023
-                    </p>
-                  </div>
-                </div>
-                <h2 className="text-sm sm:text-base mt-4">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum
-                  suscipit quod, vitae molestias reprehenderit sapiente!lorem5
-                  Lorem ipsum dolor sit amet.
-                </h2>
-              </div>
-
-              <div>
-                <div className="flex items-center gap-4 mt-8">
-                  <div className="w-[10%]">
-                    <img
-                      className="w-full h-full rounded-full"
-                      src={businessImg}
-                      alt="ProfileImage"
-                    />
-                  </div>
-                  <div>
-                    <h1 className="text-base sm:text-base font-semibold">
-                      Martin Brewer
-                    </h1>
-                    <p className="text-xs sm:text-xs text-gray-500">
-                      21-08-2023
-                    </p>
-                  </div>
-                </div>
-                <h2 className="text-sm sm:text-base mt-4">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum
-                  suscipit quod, vitae molestias reprehenderit sapiente!
-                </h2>
-              </div>
-              <div>
-                <div className="flex items-center gap-4 mt-8">
-                  <div className="w-[10%]">
-                    <img
-                      className="w-full h-full rounded-full"
-                      src={codingImg}
-                      alt="ProfileImage"
-                    />
-                  </div>
-                  <div>
-                    <h1 className="text-base sm:text-base font-semibold">
-                      Martin Brewer
-                    </h1>
-                    <p className="text-xs sm:text-xs text-gray-500">
-                      21-08-2023
-                    </p>
-                  </div>
-                </div>
-                <h2 className="text-sm sm:text-base mt-4">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum
-                  suscipit quod, vitae molestias reprehenderit sapiente!
-                </h2>
-              </div>
+                )
+              }
             </div>
           </div>
         </div>
@@ -234,74 +216,26 @@ const BlogDetail = () => {
               <p className="font-light text-sm">What's hot</p>
               <h1 className="font-semibold text-2xl">Most Popular</h1>
             </div>
-            <div className="mt-8">
-              <a href="/">
-                <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                  coding
-                </div>
-                <p className="my-2 font-[400]">
-                  A Journey Through Bohemian Beauti Exploring The Streets of
-                  Prague
-                </p>
-              </a>
+            {
+              hotBlogs.map((blog, index) =>
+                <div className="mt-8" key={index}>
+                  <Link to={`/blog/${blog.id}`} onClick={() => fetchNewBlog(blog.id)}>
+                    <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
+                      {blog.category}
+                    </div>
+                    <p className="my-2 font-[400]">
+                      {blog.title}
+                    </p>
+                  </Link>
 
-              <div className="flex text-[13px] items-center gap-2 font-light">
-                <p>Joseph Owen</p>
-                <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                <p>02-10-23</p>
-              </div>
-            </div>
-            <div className="mt-8">
-              <a href="/">
-                <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                  coding
-                </div>
-                <p className="my-2 font-[400]">
-                  A Journey Through Bohemian Beauti Exploring The Streets of
-                  Prague
-                </p>
-              </a>
-
-              <div className="flex text-[13px] items-center gap-2 font-light">
-                <p>Joseph Owen</p>
-                <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                <p>02-10-23</p>
-              </div>
-            </div>
-            <div className="mt-8">
-              <a href="/">
-                <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                  coding
-                </div>
-                <p className="my-2 font-[400]">
-                  A Journey Through Bohemian Beauti Exploring The Streets of
-                  Prague
-                </p>
-              </a>
-
-              <div className="flex text-[13px] items-center gap-2 font-light">
-                <p>Joseph Owen</p>
-                <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                <p>02-10-23</p>
-              </div>
-            </div>
-            <div className="mt-8">
-              <a href="/">
-                <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                  coding
-                </div>
-                <p className="my-2 font-[400]">
-                  A Journey Through Bohemian Beauti Exploring The Streets of
-                  Prague
-                </p>
-              </a>
-
-              <div className="flex text-[13px] items-center gap-2 font-light">
-                <p>Joseph Owen</p>
-                <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                <p>02-10-23</p>
-              </div>
-            </div>
+                  <div className="flex text-[13px] items-center gap-2 font-light">
+                    <p>{blog.author}</p>
+                    <div className="w-1 h-1 bg-red-900 rounded-full"></div>
+                    <p>{blog.date}</p>
+                  </div>
+                </div> 
+              )
+            }
           </div>
           <div className="my-10">
             <div>
@@ -325,114 +259,37 @@ const BlogDetail = () => {
               <p className="font-light text-sm">Chosen by the editor</p>
               <h1 className="font-semibold text-2xl">Editors Pick</h1>
             </div>
-            <div className="mt-8 flex justify-center items-center gap-4">
-              <div className="w-2/6">
-                <img
-                  className="w-full h-full"
-                  src={codingImg}
-                  alt=""
-                  srcset=""
-                />
-              </div>
-
-              <div>
-                <a href="/">
-                  <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                    coding
+            {
+                editorBlogs.map((blog, index) => 
+                  <div key={index} className="mt-8 flex justify-center items-center gap-4">
+                    <div className="w-2/6">
+                      <img
+                        className="w-full h-full rounded-full"
+                        src={serviceLogos[blog.category]}
+                        alt=""
+                        srcset=""
+                      />
+                    </div>
+      
+                    <div>
+                      <Link to={`/blog/${blog.id}`} onClick={() => fetchNewBlog(blog.id)}>
+                        <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
+                          {blog.category}
+                        </div>
+                        <p className="my-2 font-[400]">
+                          {blog.title}
+                        </p>
+                      </Link>
+                      <div className="flex text-[13px] items-center gap-2 font-light">
+                        <p>{blog.author}</p>
+                        <div className="w-1 h-1 bg-red-900 rounded-full"></div>
+                        <p>{blog.date}</p>
+                      </div>
+                    </div>
                   </div>
-                  <p className="my-2 font-[400]">
-                    A Journey Through Bohemian Beauti Exploring The Streets of
-                    Prague
-                  </p>
-                </a>
-                <div className="flex text-[13px] items-center gap-2 font-light">
-                  <p>Joseph Owen</p>
-                  <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                  <p>02-10-23</p>
-                </div>
-              </div>
-            </div>
-            <div className="mt-8 flex justify-center items-center gap-4">
-              <div className="w-2/6">
-                <img
-                  className="w-full h-full"
-                  src={codingImg}
-                  alt=""
-                  srcset=""
-                />
-              </div>
-
-              <div>
-                <a href="/">
-                  <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                    coding
-                  </div>
-                  <p className="my-2 font-[400]">
-                    A Journey Through Bohemian Beauti Exploring The Streets of
-                    Prague
-                  </p>
-                </a>
-                <div className="flex text-[13px] items-center gap-2 font-light">
-                  <p>Joseph Owen</p>
-                  <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                  <p>02-10-23</p>
-                </div>
-              </div>
-            </div>
-            <div className="mt-8 flex justify-center items-center gap-4">
-              <div className="w-2/6">
-                <img
-                  className="w-full h-full"
-                  src={codingImg}
-                  alt=""
-                  srcset=""
-                />
-              </div>
-
-              <div>
-                <a href="/">
-                  <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                    coding
-                  </div>
-                  <p className="my-2 font-[400]">
-                    A Journey Through Bohemian Beauti Exploring The Streets of
-                    Prague
-                  </p>
-                </a>
-                <div className="flex text-[13px] items-center gap-2 font-light">
-                  <p>Joseph Owen</p>
-                  <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                  <p>02-10-23</p>
-                </div>
-              </div>
-            </div>
-            <div className="mt-8 flex justify-center items-center gap-4">
-              <div className="w-2/6">
-                <img
-                  className="w-full h-full"
-                  src={codingImg}
-                  alt=""
-                  srcset=""
-                />
-              </div>
-
-              <div>
-                <a href="/">
-                  <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                    coding
-                  </div>
-                  <p className="my-2 font-[400]">
-                    A Journey Through Bohemian Beauti Exploring The Streets of
-                    Prague
-                  </p>
-                </a>
-                <div className="flex text-[13px] items-center gap-2 font-light">
-                  <p>Joseph Owen</p>
-                  <div className="w-1 h-1 bg-red-900 rounded-full"></div>
-                  <p>02-10-23</p>
-                </div>
-              </div>
-            </div>
+                )
+            }
+            
           </div>
         </div>
       </div>
