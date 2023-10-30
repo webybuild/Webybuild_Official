@@ -43,18 +43,18 @@ const Contacts = () => {
       } else {
         if (
           form.name &&
-          form.name.length != 0 &&
+          form.name.length !== 0 &&
           form.email &&
           form.email.match("@") &&
           form.email.match(".") &&
           form.helpType &&
-          form.helpType.length != 0 &&
+          form.helpType.length !== 0 &&
           form.service &&
           form.service.length !== 0
         ) {
           const { data } = await axios.post(url + "/contact", form);
           console.log(data);
-          setMessage(<span className="text-green-500">{data.message}</span>);
+          setMessage(<span className="text-pink-800">{data.message}</span>);
         } else {
           setMessage(
             <span className="text-red-500">

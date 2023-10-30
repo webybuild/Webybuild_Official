@@ -70,6 +70,15 @@ const OurBlog = () => {
     fetchBlogs();
   }, [setHotBlogs]); // Include setHotBlogs in the dependency array
 
+  function truncateText(text, maxWords) {
+    const words = text.split(" ");
+    if (words.length <= maxWords) {
+      return text;
+    }
+    const truncatedText = words.slice(0, maxWords).join(" ");
+    return truncatedText + "...";
+  }
+
   return (
     <>
       <section className="bg-white">
@@ -80,6 +89,7 @@ const OurBlog = () => {
               highlight="Blogs"
               subTitle="We use an agile approach to test assumptions and connect with the
               needs of our audience early and often."
+              z
             />
           </div>
           <div className="flex gap-16">
@@ -109,10 +119,14 @@ const OurBlog = () => {
                     </div>
                     <div>
                       <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                        <Link to={`/blog/${blog.id}`}>{blog.title}</Link>
+                        <Link to={`/blog/${blog.title.replace(/ /g, "-")}`}>
+                          {blog.title}
+                        </Link>
                       </h2>
                       <p className="mb-5 font-light text-gray-500">
-                        <MarkdownPreview source={blog.body[0]} />
+                        <MarkdownPreview
+                          source={truncateText(blog.body[0], 10)}
+                        />
                       </p>
                       <div className="flex justify-between items-center">
                         <div className="flex items-center space-x-4">
@@ -124,7 +138,7 @@ const OurBlog = () => {
                           <span className="font-medium">{blog.author}</span>
                         </div>
                         <Link
-                          to={`/blog/${blog.id}`}
+                          to={`/blog/${blog.title.replace(/ /g, "-")}`}
                           className="inline-flex items-center font-medium text-primary-600 hover:underline"
                         >
                           Read more
@@ -178,6 +192,7 @@ const OurBlog = () => {
                         {blog.category}
                       </div>
                       <p className="my-2 font-[400]">{blog.title}</p>
+                      <p>{truncateText(blog.body[0], 10)}</p>
                     </Link>
 
                     <div className="flex text-[13px] items-center gap-2 font-light">
