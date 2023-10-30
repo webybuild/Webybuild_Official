@@ -1,5 +1,5 @@
 import React from "react";
-import {useState} from 'react';
+import { useState } from "react";
 import manifest from "../assets/images/portfolio/manifest.svg";
 import desginfirm from "../assets/images/portfolio/designFirms.svg";
 import googlereview from "../assets/images/portfolio/google.svg";
@@ -16,14 +16,13 @@ import support from "../assets/images/Shapes/support.svg";
 import axios from "axios";
 import { url } from "../utils/config";
 
-
-
-
 const Contacts = () => {
-  const [ form, setForm ] = useState({helpType: 'Project Discussion', service: 'Web Design'})
-  const [ checked, setChecked ] = useState(false)
-  const [ message, setMessage ] = useState('');
-
+  const [form, setForm] = useState({
+    helpType: "Project Discussion",
+    service: "Web Design",
+  });
+  const [checked, setChecked] = useState(false);
+  const [message, setMessage] = useState("");
 
   function updateFormData(e) {
     const { name, value } = e.target;
@@ -32,31 +31,45 @@ const Contacts = () => {
     setForm(data);
   }
 
-  async function contact(){
-    console.log(form)
+  async function contact() {
+    console.log(form);
     try {
-      if(!checked) {
-        setMessage(<span className="text-red-500">{'Please accept our terms & conditions!'}</span>)
+      if (!checked) {
+        setMessage(
+          <span className="text-red-500">
+            {"Please accept our terms & conditions!"}
+          </span>
+        );
       } else {
-        if(
-          form.name && form.name.length != 0 &&
-          form.email && form.email.match('@') && form.email.match('.') &&
-          form.helpType && form.helpType.length != 0 &&
-          form.service && form.service.length !== 0
-        ){
-          const {data} = await axios.post(url + '/contact', form);
-          console.log(data)
-          setMessage(<span className="text-green-500">{data.message}</span>)
+        if (
+          form.name &&
+          form.name.length !== 0 &&
+          form.email &&
+          form.email.match("@") &&
+          form.email.match(".") &&
+          form.helpType &&
+          form.helpType.length !== 0 &&
+          form.service &&
+          form.service.length !== 0
+        ) {
+          const { data } = await axios.post(url + "/contact", form);
+          console.log(data);
+          setMessage(<span className="text-pink-800">{data.message}</span>);
         } else {
-          setMessage(<span className="text-red-500">{'Please enter Name, Email, Support type & Service correctly!'}</span>)
+          setMessage(
+            <span className="text-red-500">
+              {"Please enter Name, Email, Support type & Service correctly!"}
+            </span>
+          );
         }
       }
     } catch (error) {
-      console.log(error)
-      setMessage(<span className="text-red-500">{error.response.data.message}</span>)
+      console.log(error);
+      setMessage(
+        <span className="text-red-500">{error.response.data.message}</span>
+      );
     }
   }
-
 
   return (
     <>
@@ -224,7 +237,7 @@ const Contacts = () => {
                     placeholder="John Doe"
                     required
                     value={form.name}
-                    onChange={e => updateFormData(e)}
+                    onChange={(e) => updateFormData(e)}
                   />
                 </div>
                 <div className="w-full">
@@ -242,7 +255,7 @@ const Contacts = () => {
                     required
                     name="email"
                     value={form.email}
-                    onChange={e => updateFormData(e)}
+                    onChange={(e) => updateFormData(e)}
                   />
                 </div>
               </div>
@@ -258,7 +271,7 @@ const Contacts = () => {
                     <select
                       name="helpType"
                       id="Project_menu"
-                      onChange={e => updateFormData(e)}
+                      onChange={(e) => updateFormData(e)}
                       className="block p-3 w-full text-xs md:text-sm text-gray-900 bg-white rounded-lg border shadow-lg focus:ring-primary-500 focus:border-primary-500"
                     >
                       <option value="Project Discussion">
@@ -283,9 +296,9 @@ const Contacts = () => {
                   </label>
                   <div className="flex items-center">
                     <select
-                     name="service"
+                      name="service"
                       id="Project_menu"
-                      onChange={e => updateFormData(e)}
+                      onChange={(e) => updateFormData(e)}
                       className="block p-3 w-full text-xs md:text-sm text-gray-900 bg-white rounded-lg border shadow-lg focus:ring-primary-500 focus:border-primary-500"
                     >
                       <option value="Web Design">Web Design</option>
@@ -321,7 +334,7 @@ const Contacts = () => {
                   required
                   name="company"
                   value={form.company}
-                  onChange={e => updateFormData(e)}
+                  onChange={(e) => updateFormData(e)}
                 />
               </div>
               <div className="sm:col-span-2">
@@ -339,7 +352,7 @@ const Contacts = () => {
                   required
                   name="message"
                   value={form.message}
-                  onChange={e => updateFormData(e)}
+                  onChange={(e) => updateFormData(e)}
                 ></textarea>
               </div>
               <div className="">

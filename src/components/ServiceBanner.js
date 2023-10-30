@@ -1,12 +1,12 @@
 import React from "react";
 
-const ServiceBanner = ({ title, intro }) => {
+const ServiceBanner = ({ title, intro, bread }) => {
   return (
     <>
       <section className="p-8 lg:p-16 background mt-0 lg:mt-[-4rem] lg:pt-28">
         <div className="flex flex-col lg:flex-row lg:gap-16">
           <div className="flex-1">
-            <p className="text-sm text-black">Home / About</p>
+            <p className="text-sm text-black">Home / Services / {bread}</p>
             <div className="flex justify-end gap-2">
               <h1 className="font-extrabold uppercase text-2xl lg:text-right lg:text-6xl mt-2 multi_color_heading">
                 {title}
