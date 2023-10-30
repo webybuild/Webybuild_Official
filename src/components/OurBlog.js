@@ -119,7 +119,12 @@ const OurBlog = () => {
                     </div>
                     <div>
                       <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                        <Link to={`/blog/${blog.title.replace(/ /g, "-")}`}>
+                        <Link
+                          to={`/blog/${blog.title
+                            .replace(/ /g, "-")
+                            .toLowerCase()}`}
+                          className="capitalize"
+                        >
                           {blog.title}
                         </Link>
                       </h2>
@@ -138,7 +143,9 @@ const OurBlog = () => {
                           <span className="font-medium">{blog.author}</span>
                         </div>
                         <Link
-                          to={`/blog/${blog.title.replace(/ /g, "-")}`}
+                          to={`/blog/${blog.title
+                            .replace(/ /g, "-")
+                            .toLowerCase()}`}
                           className="inline-flex items-center font-medium text-primary-600 hover:underline"
                         >
                           Read more
@@ -187,7 +194,11 @@ const OurBlog = () => {
                 </div>
                 {hotBlogs.map((blog, index) => (
                   <div className="mt-8" key={index}>
-                    <Link to={`/blog/${blog.id}`}>
+                    <Link
+                      to={`/blog/${blog.title
+                        .replace(/ /g, "-")
+                        .toLowerCase()}`}
+                    >
                       <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
                         {blog.category}
                       </div>
