@@ -33,7 +33,7 @@ const serviceItems = [
     icon: <DesignServicesOutlined />,
   },
   {
-    text: "Custom Web Development",
+    text: "Web Development",
     icon: <PhonelinkOutlined />,
   },
   {
