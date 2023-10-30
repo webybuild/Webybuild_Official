@@ -110,7 +110,7 @@ const OurBlog = () => {
                       </div>
                       <div>
                         <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                          <Link to={`/blog/${blog.id}`}>{blog.title}</Link>
+                          <Link className="lowercase" to={`/blog/${blog.title.replace(/ /g, '-')}`}>{blog.title}</Link>
                         </h2>
                         <p className="mb-5 font-light text-gray-500 dark:text-gray-400">
                           <MarkdownPreview source={blog.body[0]} />
@@ -125,7 +125,7 @@ const OurBlog = () => {
                             <span className="font-medium">{blog.author}</span>
                           </div>
                           <Link
-                            to={`/blog/${blog.id}`}
+                            to={`/blog/${blog.title.replace(/ /g, '-')}`}
                             className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline"
                           >
                             Read more
