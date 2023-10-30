@@ -78,12 +78,12 @@ const BlogDetail = () => {
   }
 
   async function fetchBlogData() {
-    const id = window.location.pathname.split("/")[2];
-    setBlogId(id);
+    const title = window.location.pathname.split("/")[2];
     try {
-      const { data } = await axios.get(`${url}/blog/${id}`);
+      const { data } = await axios.get(`${url}/blog/${title}`);
       console.log(data);
       setData(data.data);
+      setBlogId(data.data.id);
     } catch (error) {
       console.log(error);
     }

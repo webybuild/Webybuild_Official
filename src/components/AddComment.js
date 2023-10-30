@@ -18,6 +18,7 @@ function AddComment(props) {
     }
 
     function addComment() {
+      console.log(formData)
       try {
         if(
           formData.email && formData.email.match('@') && formData.email.match('.') &&
