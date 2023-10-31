@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import codingImg from "../assets/images/blog/codingSvg.svg";
-import businessImg from "../assets/images/blog/businessSvg.svg";
-import websiteImg from "../assets/images/blog/websiteSvg.svg";
-import blogImg from "../assets/images/blog/blogsSvg.svg";
-import graphicImg from "../assets/images/blog/graphicsSvg.png";
-import growthImg from "../assets/images/blog/growthSvg.svg";
+// import codingImg from "../assets/images/blog/codingSvg.svg";
+// import businessImg from "../assets/images/blog/businessSvg.svg";
+// import websiteImg from "../assets/images/blog/websiteSvg.svg";
+// import blogImg from "../assets/images/blog/blogsSvg.svg";
+// import graphicImg from "../assets/images/blog/graphicsSvg.png";
+// import growthImg from "../assets/images/blog/growthSvg.svg";
 import HeadTitle from "./HeadTitle";
 import { useRecoilState } from "recoil";
 import hotBlogsAtom from "../atoms/hotBlogsAtom";
@@ -15,38 +15,38 @@ import { url } from "../utils/config";
 import MarkdownPreview from "@uiw/react-markdown-preview";
 import avatars from "../utils/avatars";
 
-const categoryItem = [
-  {
-    text: "Coding",
-    icon: codingImg,
-    color: "#fcd0d0",
-  },
-  {
-    text: "Business",
-    icon: businessImg,
-    color: "#e6e6ff",
-  },
-  {
-    text: "Website",
-    icon: websiteImg,
-    color: "#ffffe3",
-  },
-  {
-    text: "Blogs",
-    icon: blogImg,
-    color: "#e4ffe4",
-  },
-  {
-    text: "Graphics",
-    icon: graphicImg,
-    color: "#f7f7f7",
-  },
-  {
-    text: "Growth",
-    icon: growthImg,
-    color: "#ffe4ff",
-  },
-];
+// const categoryItem = [
+//   {
+//     text: "Coding",
+//     icon: codingImg,
+//     color: "#fcd0d0",
+//   },
+//   {
+//     text: "Business",
+//     icon: businessImg,
+//     color: "#e6e6ff",
+//   },
+//   {
+//     text: "Website",
+//     icon: websiteImg,
+//     color: "#ffffe3",
+//   },
+//   {
+//     text: "Blogs",
+//     icon: blogImg,
+//     color: "#e4ffe4",
+//   },
+//   {
+//     text: "Graphics",
+//     icon: graphicImg,
+//     color: "#f7f7f7",
+//   },
+//   {
+//     text: "Growth",
+//     icon: growthImg,
+//     color: "#ffe4ff",
+//   },
+// ];
 
 const OurBlog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -170,7 +170,8 @@ const OurBlog = () => {
               <div className="flex gap-8 flex-col lg:flex-row"></div>
             </div>
             <div className="flex-[1] hidden lg:block">
-              <div className="">
+              {/* category */}
+              {/* <div className="">
                 <div>
                   <p className="font-light text-sm">Discover by topic</p>
                   <h1 className="font-semibold text-2xl">Categories</h1>
@@ -186,7 +187,7 @@ const OurBlog = () => {
                     </button>
                   ))}
                 </div>
-              </div>
+              </div> */}
               <div>
                 <div>
                   <p className="font-light text-sm">What's hot</p>
@@ -199,7 +200,7 @@ const OurBlog = () => {
                         .replace(/ /g, "-")
                         .toLowerCase()}`}
                     >
-                      <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
+                      <div className="bg-gray-600 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
                         {blog.category}
                       </div>
                       <p className="my-1 font-[400] capitalize text-black">

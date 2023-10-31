@@ -122,11 +122,11 @@ const WebDesign = () => {
         />
         <GetInTouch
           title="Get In Touch"
-          para="ARE YOU LOOKING FOR A WEB DESIGN COMPANY TO MANAGE & EXECUTE A
-              PROFESSIONAL WEBSITE FOR YOUR BUSINESS"
+          para="ARE YOU LOOKING FOR A WEB DEVELOPMENT COMPANY TO MANAGE & EXECUTE A
+        PROFESSIONAL WEBSITE AND APPS FOR YOUR BUSINESS"
           but="Get Started Now"
           paratwo="Contact us with different medium whatsapp, call or mail, We are
-              open."
+        open."
         />
       </section>
     </>

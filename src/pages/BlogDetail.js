@@ -122,6 +122,15 @@ const BlogDetail = () => {
     }
   }
 
+  function truncateText(text, maxWords) {
+    const words = text.split(" ");
+    if (words.length <= maxWords) {
+      return text;
+    }
+    const truncatedText = words.slice(0, maxWords).join(" ");
+    return truncatedText + "...";
+  }
+
   return (
     data !== null && (
       <>
@@ -243,11 +252,14 @@ const BlogDetail = () => {
                         .replace(/ /g, "-")
                         .toLowerCase()}`}
                     >
-                      <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
+                      <div className="bg-gray-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
                         {blog.category}
                       </div>
                       <p className="my-2 font-[400] text-gray-500 capitalize">
                         {blog.title}
+                      </p>
+                      <p className="text-gray-400 text-sm">
+                        {truncateText(blog.body[0], 15)}
                       </p>
                     </Link>
                   ) : (
@@ -261,14 +273,17 @@ const BlogDetail = () => {
                         )
                       }
                     >
-                      <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
+                      <div className="bg-gray-600 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
                         {blog.category}
                       </div>
-                      <p className="my-2 font-[400]">{blog.title}</p>
+                      <p className="my-2 font-[400] capitalize">{blog.title}</p>
+                      <p className="text-gray-700 text-sm">
+                        {truncateText(blog.body[0], 15)}
+                      </p>
                     </Link>
                   )}
 
-                  <div className="flex text-[13px] items-center gap-2 font-light">
+                  <div className="flex text-[13px] items-center gap-2 font-light mt-4">
                     <p>{blog.author}</p>
                     <div className="w-1 h-1 bg-red-900 rounded-full"></div>
                     <p>{blog.date}</p>
@@ -299,13 +314,10 @@ const BlogDetail = () => {
                 <h1 className="font-semibold text-2xl">Editors Pick</h1>
               </div>
               {editorBlogs.map((blog, index) => (
-                <div
-                  key={index}
-                  className="mt-8 flex justify-center items-center gap-4"
-                >
-                  <div className="w-2/6">
+                <div key={index} className="mt-8 flex w-full gap-4">
+                  <div className="full">
                     <img
-                      className="w-full h-full rounded-full"
+                      className="w-[4rem] h-[4rem] max-w-none"
                       src={serviceLogos[blog.category]}
                       alt=""
                       srcset=""
@@ -323,13 +335,16 @@ const BlogDetail = () => {
                         )
                       }
                     >
-                      <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
+                      <div className="bg-gray-600 w-[6.5rem] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
                         {blog.category}
                       </div>
-                      <p className="my-2 font-[400]">{blog.title}</p>
+                      <p className="my-2 font-[400] capitalize">{blog.title}</p>
+                      <p className="text-gray-700 text-sm">
+                        {truncateText(blog.body[0], 10)}
+                      </p>
                     </Link>
-                    <div className="flex text-[13px] items-center gap-2 font-light">
-                      <p>{blog.author}</p>
+                    <div className="flex text-[13px] items-center gap-2 font-light mt-4">
+                      <p>{blog.author.split(" ")[0]}</p>
                       <div className="w-1 h-1 bg-red-900 rounded-full"></div>
                       <p>{blog.date}</p>
                     </div>

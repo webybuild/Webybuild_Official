@@ -199,7 +199,7 @@ const BlogFront = () => {
                 <Link
                   to={`/blog/${blog.title.replace(/ /g, "-").toLowerCase()}`}
                 >
-                  <div className="bg-gray-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
+                  <div className="bg-gray-600 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
                     {blog.category}
                   </div>
                   <p className="my-2 font-[400] capitalize">{blog.title}</p>
@@ -253,7 +253,7 @@ const BlogFront = () => {
                   <Link
                     to={`/blog/${blog.title.replace(/ /g, "-").toLowerCase()}`}
                   >
-                    <div className="bg-red-400 w-[6.5rem] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
+                    <div className="bg-gray-600 w-[6.5rem] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
                       {blog.category}
                     </div>
                     <p className="my-2 font-[400] capitalize">{blog.title}</p>
@@ -261,7 +261,7 @@ const BlogFront = () => {
                       {truncateText(blog.body[0], 10)}
                     </p>
                   </Link>
-                  <div className="flex text-[13px] items-center gap-2 font-light">
+                  <div className="flex text-[13px] items-center gap-2 font-light mt-4">
                     <p>{blog.author.split(" ")[0]}</p>
                     <div className="w-1 h-1 bg-red-900 rounded-full"></div>
                     <p>{blog.date}</p>
