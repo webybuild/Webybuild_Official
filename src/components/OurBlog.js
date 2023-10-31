@@ -118,7 +118,7 @@ const OurBlog = () => {
                       <img src={blog.imageUrl} alt="" />
                     </div>
                     <div>
-                      <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                      <h2 className="my-2 text-2xl font-bold tracking-tight text-gray-900">
                         <Link
                           to={`/blog/${blog.title
                             .replace(/ /g, "-")
@@ -130,7 +130,7 @@ const OurBlog = () => {
                       </h2>
                       <p className="mb-5 font-light text-gray-500">
                         <MarkdownPreview
-                          source={truncateText(blog.body[0], 10)}
+                          source={truncateText(blog.body[0], 25)}
                         />
                       </p>
                       <div className="flex justify-between items-center">
@@ -202,11 +202,15 @@ const OurBlog = () => {
                       <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
                         {blog.category}
                       </div>
-                      <p className="my-2 font-[400]">{blog.title}</p>
-                      <p>{truncateText(blog.body[0], 10)}</p>
+                      <p className="my-1 font-[400] capitalize text-black">
+                        {blog.title}
+                      </p>
+                      <p className="text-gray-700 text-sm">
+                        {truncateText(blog.body[0], 25)}
+                      </p>
                     </Link>
 
-                    <div className="flex text-[13px] items-center gap-2 font-light">
+                    <div className="flex text-[13px] items-center gap-2 mt-4 font-light">
                       <p>{blog.author}</p>
                       <div className="w-1 h-1 bg-red-900 rounded-full"></div>
                       <p>{blog.date}</p>

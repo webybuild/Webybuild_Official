@@ -237,15 +237,36 @@ const BlogDetail = () => {
               </div>
               {hotBlogs.map((blog, index) => (
                 <div className="mt-8" key={index}>
-                  <Link
-                    to={`/blog/${blog.title.replace(/ /g, "-").toLowerCase()}`}
-                    onClick={() => fetchNewBlog(blog.id)}
-                  >
-                    <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
-                      {blog.category}
-                    </div>
-                    <p className="my-2 font-[400] capitalize">{blog.title}</p>
-                  </Link>
+                  {blog.id === data.id ? (
+                    <Link
+                      to={`/blog/${blog.title
+                        .replace(/ /g, "-")
+                        .toLowerCase()}`}
+                    >
+                      <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
+                        {blog.category}
+                      </div>
+                      <p className="my-2 font-[400] text-gray-500 capitalize">
+                        {blog.title}
+                      </p>
+                    </Link>
+                  ) : (
+                    <Link
+                      to={`/blog/${blog.title
+                        .replace(/ /g, "-")
+                        .toLowerCase()}`}
+                      onClick={() =>
+                        fetchNewBlog(
+                          blog.title.replace(/ /g, "-").toLowerCase()
+                        )
+                      }
+                    >
+                      <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
+                        {blog.category}
+                      </div>
+                      <p className="my-2 font-[400]">{blog.title}</p>
+                    </Link>
+                  )}
 
                   <div className="flex text-[13px] items-center gap-2 font-light">
                     <p>{blog.author}</p>
@@ -293,8 +314,14 @@ const BlogDetail = () => {
 
                   <div>
                     <Link
-                      to={`/blog/${blog.id}`}
-                      onClick={() => fetchNewBlog(blog.id)}
+                      to={`/blog/${blog.title
+                        .replace(/ /g, "-")
+                        .toLowerCase()}`}
+                      onClick={() =>
+                        fetchNewBlog(
+                          blog.title.replace(/ /g, "-").toLowerCase()
+                        )
+                      }
                     >
                       <div className="bg-red-400 w-[30%] flex justify-center items-center p-1 text-white font-light text-xs tracking-wider capitalize rounded-md">
                         {blog.category}
