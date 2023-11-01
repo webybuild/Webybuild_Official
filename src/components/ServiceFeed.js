@@ -21,7 +21,7 @@ const ServiceFeed = ({
       <section>
         <div className="flex flex-col lg:flex-row h-full w-full justify-center items-center px-2 md:px-12 xl:px-8 my-4 lg:my-16">
           <div className="flex-1 flex mb-10 lg:my-0 w-full h-full">
-            <img className="w-full" src={img} alt="" />
+            <img className="w-full h-auto" src={img} alt="" />
           </div>
           <div className="flex-1 flex justify-center items-center ml-0 lg:ml-8 px-4 lg:px-0">
             <div className="text-left">

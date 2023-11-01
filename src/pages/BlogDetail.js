@@ -163,7 +163,7 @@ const BlogDetail = () => {
                 </div>
               </div>
             </div>
-            <div className="w-4/5 lg:w-2/6">
+            <div className="w-11/12 lg:w-2/6">
               <img
                 className="w-full drop-shadow-lg"
                 src={data.imageUrl}
@@ -173,9 +173,9 @@ const BlogDetail = () => {
           </div>
         </div>
 
-        <div className="container px-4 xl:px-40 mx-auto flex my-16">
+        <div className="container px-4 xl:px-40 mx-auto flex my-8 lg:my-16">
           <div className="flex-[3]">
-            <div className="flex flex-col justify-center items-center lg:items-start px-8 text-justify  w-full lg:w-11/12 gap-5">
+            <div className="flex flex-col justify-center items-center lg:items-start px-4 lg:px-8 text-left  w-full lg:w-11/12 gap-5">
               {/* <div className="">
               <img className="w-full" src={bannerImg} alt="bannerimage" />
             </div> */}

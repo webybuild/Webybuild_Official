@@ -10,12 +10,12 @@ import { Link } from "react-router-dom";
 
 const links = [
   { name: "Web Design", href: "/services/web-design" },
-  { name: "Web Development", href: "/services/custom-web-development" },
-  { name: "Mobile Application", href: "/services/inventory-management" },
-  { name: "Inventry Management", href: "/services/mobile-application" },
-  { name: "Digital Marketing", href: "/services/cloud-services" },
-  { name: "Cloud Services", href: "/services/logo-design" },
-  { name: "Logo Design", href: "/services/digital-marketing" },
+  { name: "Web Development", href: "/services/web-development" },
+  { name: "Mobile Application", href: "/services/mobile-application" },
+  { name: "Inventry Management", href: "/services/inventory-management" },
+  { name: "Digital Marketing", href: "/services/digital-marketing" },
+  { name: "Cloud Services", href: "/services/cloud-services" },
+  { name: "Logo Design", href: "/services/logo-design" },
 ];
 
 const cardsData = [

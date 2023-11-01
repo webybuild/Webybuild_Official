@@ -86,7 +86,7 @@ export default function ResponsiveVerticalTabs() {
                 gap: "0.3rem",
                 // color: "red",
               },
-              "& .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected": {
+              "& .css-1q2h7u5.Mui-selected": {
                 fontWeight: "bold !important",
                 border: "0.5px solid #ffebeb !important",
                 boxShadow: "2px 3px 6px -4px #808080e3 !important",
