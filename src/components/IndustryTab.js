@@ -86,14 +86,14 @@ export default function ResponsiveVerticalTabs() {
                 gap: "0.3rem",
                 // color: "red",
               },
-              "& .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected": {
-                fontWeight: "bold !important",
-                border: "0.5px solid #ffebeb !important",
-                boxShadow: "2px 3px 6px -4px #808080e3 !important",
+              "& .Mui-selected": {
+                fontWeight: "bold",
+                border: "0.5px solid #ffebeb",
+                boxShadow: "2px 3px 6px -4px #808080e3",
                 backgroundImage:
-                  "linear-gradient(to right, #ef4949 -1%, #5250E1 76%) !important",
-                WebkitBackgroundClip: "text !important",
-                backgroundClip: "text !important",
+                  "linear-gradient(to right, #ef4949 -1%, #5250E1 76%)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
                 color: "transparent !important",
               },
             }}
@@ -126,7 +126,7 @@ export default function ResponsiveVerticalTabs() {
                 gap: "0.3rem",
                 // color: "red",
               },
-              "& .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected": {
+              "& .Mui-selected": {
                 fontWeight: "bold",
                 border: "0.5px solid #ffebeb",
                 boxShadow: "2px 3px 6px -4px #808080e3",
@@ -134,7 +134,7 @@ export default function ResponsiveVerticalTabs() {
                   "linear-gradient(to right, #ef4949 -1%, #5250E1 76%)",
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
-                color: "transparent",
+                color: "transparent !important",
               },
             }}
           >

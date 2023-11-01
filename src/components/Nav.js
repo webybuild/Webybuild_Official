@@ -277,7 +277,7 @@ function Nav() {
                   color: "#ab4c8a",
                   border: "1px solid #b6b6b6",
                   "&:hover": {
-                    backgroundColor: "#ab4c8a",
+                    backgroundColor: "#ab4c8a0f",
                     borderColor: "white",
                   },
                 }}
