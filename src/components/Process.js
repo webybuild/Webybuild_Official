@@ -1,7 +1,7 @@
 import React from "react";
 import flowProcess from "../assets/images/Shapes/flowProcess.svg";
 import HeadTitle from "./HeadTitle";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const Process = () => {
   return (
@@ -72,9 +72,9 @@ const Process = () => {
                 Additionally, we ensure regular system upgrades to keep pace
                 with the latest software and version releases.
               </p>
-              <button className="border gradient-border-button mt-8 text-black font-semibold py-2 px-4 transition duration-300 ease-in-out transform hover:drop-shadow-md uppercase">
+              {/* <button className="border gradient-border-button mt-8 text-black font-semibold py-2 px-4 transition duration-300 ease-in-out transform hover:drop-shadow-md uppercase">
                 <Link to="/contacts">Contact Us</Link>
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

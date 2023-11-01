@@ -1,5 +1,4 @@
 import React from "react";
-import ServiceBanner from "../components/ServiceBanner";
 import founder from "../assets/images/portfolio/HarshJ.png";
 import AboutButtonCta from "../components/AboutButtonCta";
 import Stats from "../components/Stats";
@@ -8,12 +7,25 @@ const About = () => {
   return (
     <>
       <section className="">
-        <ServiceBanner
-          title="We Build Bridges between Companies and customers"
-          intro=" To build software that gives customer-facing teams at small and
-          medium seized business the ability to create fruitful and enduring
-          realationships with customers"
-        />
+        <section className="p-8 lg:p-16 background mt-0 lg:mt-[-4rem] lg:pt-28">
+          <div className="flex flex-col lg:flex-row lg:gap-16">
+            <div className="flex-1">
+              <p className="text-sm text-black">Home / About</p>
+              <div className="flex justify-end gap-2">
+                <h1 className="font-extrabold uppercase text-2xl lg:text-right lg:text-6xl mt-2 multi_color_heading">
+                  We Build Bridges between Companies and customers
+                </h1>
+              </div>
+            </div>
+            <div className="flex justify-center items-center flex-1">
+              <h2 className="font-light capitalize text-xs lg:text-left lg:text-base mt-2 text-black">
+                To build software that gives customer-facing teams at small and
+                medium seized business the ability to create fruitful and
+                enduring realationships with customers
+              </h2>
+            </div>
+          </div>
+        </section>
 
         <div className="my-8 lg:my-14 sm:flex px-8 md:px-0 lg:px-32">
           <div className="sm:w-1/2 flex justify-center items-center mb-4">

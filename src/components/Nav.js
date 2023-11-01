@@ -276,6 +276,10 @@ function Nav() {
                 sx={{
                   color: "#ab4c8a",
                   border: "1px solid #b6b6b6",
+                  "&:hover": {
+                    backgroundColor: "#ab4c8a0f",
+                    borderColor: "white",
+                  },
                 }}
               >
                 Blogs
@@ -292,7 +296,8 @@ function Nav() {
                   fontSize: "0.786rem",
                   margin: "0px 10px",
                   "&:hover": {
-                    backgroundColor: "#546cea",
+                    backgroundColor: "#ab4c8a",
+                    borderColor: "white",
                   },
                 }}
               >

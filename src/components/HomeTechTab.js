@@ -39,7 +39,7 @@ function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
-    <div
+    <Box
       role="tabpanel"
       hidden={value !== index}
       id={`full-width-tabpanel-${index}`}
@@ -51,7 +51,7 @@ function TabPanel(props) {
           <Typography>{children}</Typography>
         </Box>
       )}
-    </div>
+    </Box>
   );
 }
 
@@ -127,9 +127,9 @@ export default function HomeTechTab() {
             )}
           </AppBar>
           <TabPanel value={value} index={0}>
-            <div className="flex flex-wrap justify-center items-center gap-4 lg:gap-8">
+            <Box className="flex flex-wrap justify-center items-center gap-4 lg:gap-8">
               {icons.map((icon, number) => (
-                <div
+                <Box
                   key={number}
                   className={`icon ${
                     number === 2
@@ -140,38 +140,38 @@ export default function HomeTechTab() {
                   } h-12 md:w-20 md:h-20 lg:w-24 lg:h-24`}
                 >
                   <img src={icon} alt={"icons"} />
-                </div>
+                </Box>
               ))}
-            </div>
+            </Box>
           </TabPanel>
           <TabPanel value={value} index={1}>
-            <div className="flex flex-wrap justify-center items-center gap-4 lg:gap-8">
+            <Box className="flex flex-wrap justify-center items-center gap-4 lg:gap-8">
               {webDev.map((icon, number) => (
-                <div
+                <Box
                   key={number}
                   className="icon w-10 h-12 md:w-20 md:h-20 lg:w-24 lg:h-24"
                 >
                   <img src={icon} alt={"icons"} />
-                </div>
+                </Box>
               ))}
-            </div>
+            </Box>
           </TabPanel>
           <TabPanel value={value} index={2}>
-            <div className="flex flex-wrap justify-center items-center gap-4 lg:gap-8">
+            <Box className="flex flex-wrap justify-center items-center gap-4 lg:gap-8">
               <img src={native} alt="" />
-            </div>
+            </Box>
           </TabPanel>
           <TabPanel value={value} index={3}>
-            <div className="flex flex-wrap justify-center items-center gap-4 lg:gap-8">
+            <Box className="flex flex-wrap justify-center items-center gap-4 lg:gap-8">
               {cloud.map((icon, number) => (
-                <div
+                <Box
                   key={number}
                   className="icon w-10 h-8 md:w-20 md:h-20 lg:w-24 lg:h-24"
                 >
                   <img src={icon} alt={"icons"} />
-                </div>
+                </Box>
               ))}
-            </div>
+            </Box>
           </TabPanel>
         </Box>
       </Box>
