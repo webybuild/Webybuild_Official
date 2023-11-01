@@ -245,7 +245,7 @@ const BlogFront = () => {
                     className="w-[4rem] h-[4rem] max-w-none"
                     src={serviceLogos[blog.category]}
                     alt=""
-                    srcset=""
+                    srcSet=""
                   />
                 </div>
 
