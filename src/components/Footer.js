@@ -92,19 +92,19 @@ const Footer = () => {
               Website Design
             </Link>
             <a
-              href="/"
+              href="/services/web-development"
               className="flex mb-3 text-sm font-normal tracking-widest text-black transition md:mb-2 text_effect"
             >
-              Custom Web Development
+              Web Development
             </a>
             <a
-              href="/"
+              href="/services/inventory-management"
               className="flex mb-3 text-sm font-normal tracking-widest text-black transition md:mb-2 text_effect"
             >
               Inventory Management
             </a>
             <a
-              href="/"
+              href="/services/cloud-services"
               className="flex mb-3 text-sm font-normal tracking-widest text-black transition md:mb-2 text_effect"
             >
               Cloud Services
@@ -116,7 +116,7 @@ const Footer = () => {
               Logo Design
             </Link>
             <a
-              href="/"
+              href="/services/digital-marketing"
               className="flex mb-3 text-sm font-normal tracking-widest text-black transition md:mb-2 text_effect"
             >
               Seo and Digital Marketing

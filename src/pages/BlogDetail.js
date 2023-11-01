@@ -18,6 +18,7 @@ import AddComment from "../components/AddComment";
 import avatars from "../utils/avatars";
 import serviceLogos from "../utils/serviceLogos";
 import fetchData from "../custom_functions/fetchData";
+import SocialSharing from "../components/SocialShare";
 
 const categoryItem = [
   {
@@ -243,6 +244,7 @@ const BlogDetail = () => {
               <div>
                 <p className="font-light text-sm">What's hot</p>
                 <h1 className="font-semibold text-2xl">Most Popular</h1>
+                <SocialSharing />
               </div>
               {hotBlogs.map((blog, index) => (
                 <div className="mt-8" key={index}>
