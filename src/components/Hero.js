@@ -6,15 +6,16 @@ import app from "../assets/images/Shapes/apps.png";
 import projects from "../assets/images/Shapes/projects--delivered.png";
 import countries from "../assets/images/Shapes/120-countries.png";
 import customer from "../assets/images/Shapes/client-satisfication.png";
+import { Link } from "react-router-dom";
 
 const links = [
-  { name: "Web Design", href: "#" },
-  { name: "Web Development", href: "#" },
-  { name: "Mobile Application", href: "#" },
-  { name: "Inventry Management", href: "#" },
-  { name: "Digital Marketing", href: "#" },
-  { name: "Cloud Services", href: "#" },
-  { name: "Logo Design", href: "#" },
+  { name: "Web Design", href: "/services/web-design" },
+  { name: "Web Development", href: "/services/web-development" },
+  { name: "Mobile Application", href: "/services/mobile-application" },
+  { name: "Inventry Management", href: "/services/inventory-management" },
+  { name: "Digital Marketing", href: "/services/digital-marketing" },
+  { name: "Cloud Services", href: "/services/cloud-services" },
+  { name: "Logo Design", href: "/services/logo-design" },
 ];
 
 const cardsData = [
@@ -93,7 +94,7 @@ const Hero = () => {
       <div className="mx-auto max-w-full px-6 lg:px-16">
         <div className="w-full lg:mx-5 flex flex-col-reverse lg:flex-row">
           <div className="mt-0 lg:mt-16 lg:my-auto flex-1 text-left lg:pl-12">
-            <h2 className="text-2xl md:text-2xl lg:text-3xl text-center lg:text-left font-bold tracking-tight text-black sm:text-3xl uppercase drop-shadow-md">
+            <h2 className="text-2xl md:text-2xl lg:text-3xl text-center lg:text-left font-light tracking-tight text-black sm:text-3xl uppercase drop-shadow-md">
               Web Development Excellence by
               <span className="multi_color_heading"> Webybuild </span>
             </h2>
@@ -105,9 +106,9 @@ const Hero = () => {
 
             <div className="flex flex-wrap justify-center lg:justify-start mt-4 gap-x-8 gap-y-6 text-base font-semibold leading-7  sm:grid-cols-2 md:flex lg:gap-x-10">
               {links.map((link) => (
-                <a key={link.name} href={link.href} className="text_effect">
+                <Link key={link.name} to={link.href} className="text_effect">
                   {link.name} <span aria-hidden="true">&rarr;</span>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -131,7 +132,7 @@ const Hero = () => {
         </div>
         <div className="flex-1 px-4">
           <div className="max-w-full lg:max-w-lg text-center lg:text-left">
-            <h1 className="text-2xl md:text-2xl lg:text-3xl uppercase font-bold mb-4 text-black drop-shadow-md">
+            <h1 className="text-2xl md:text-2xl lg:text-3xl uppercase font-light mb-4 text-black drop-shadow-md">
               Experience
               <span className="multi_color_heading"> World-class </span> Agile
               Product Development
@@ -151,7 +152,7 @@ const Hero = () => {
               Let's Start a New Project Together
             </h1>
             <button className="border gradient-border-button text-black font-semibold py-2 px-4 transition duration-300 ease-in-out transform hover:drop-shadow-md uppercase">
-              Request A Quote
+              <Link to="/contacts">Request A Quote</Link>
             </button>
           </div>
         </div>

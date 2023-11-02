@@ -1,20 +1,20 @@
 import React from "react";
 
-const ServiceBanner = ({ title, intro }) => {
+const ServiceBanner = ({ title, intro, bread }) => {
   return (
     <>
-      <section className="p-16 background mt-[-4rem] pt-28">
-        <div className="flex flex-col lg:flex-row gap-16">
+      <section className="p-8 lg:p-16 background mt-0 lg:mt-[-4rem] lg:pt-28">
+        <div className="flex flex-col lg:flex-row lg:gap-16">
           <div className="flex-1">
-            <p className="text-sm text-white">Home / About</p>
+            <p className="text-sm text-black">Home / Services / {bread}</p>
             <div className="flex justify-end gap-2">
-              <h1 className="font-extrabold uppercase text-xl lg:text-right lg:text-6xl mt-2 text-white">
+              <h1 className="font-extrabold uppercase text-2xl lg:text-right lg:text-6xl mt-2 multi_color_heading">
                 {title}
               </h1>
             </div>
           </div>
           <div className="flex justify-center items-center flex-1">
-            <h2 className="font-light capitalize text-xl lg:text-left lg:text-base mt-2 text-white">
+            <h2 className="font-light capitalize text-xs lg:text-left lg:text-base mt-2 text-black">
               {intro}
             </h2>
           </div>

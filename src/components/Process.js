@@ -1,6 +1,7 @@
 import React from "react";
 import flowProcess from "../assets/images/Shapes/flowProcess.svg";
 import HeadTitle from "./HeadTitle";
+// import { Link } from "react-router-dom";
 
 const Process = () => {
   return (
@@ -17,7 +18,7 @@ const Process = () => {
             <img className="w-3/4" src={flowProcess} alt="" />
           </div>
           <div className="flex-1 flex justify-center items-center">
-            <div className="text-center lg:text-left">
+            <div className="text-left">
               <h1 className="text-lg md:text-2xl font-bold mb-4 uppercase drop-shadow-md">
                 Turning Ideas into User-Friendly Realities
               </h1>
@@ -64,9 +65,16 @@ const Process = () => {
                 make sure everything is just right. Once it's perfect, we serve
                 it up to our clients, marking the culmination of our journey.
               </p>
-              <button className="border gradient-border-button mt-8 text-black font-semibold py-2 px-4 transition duration-300 ease-in-out transform hover:drop-shadow-md uppercase">
-                Contact Us
-              </button>
+              <p className="text-sm md:text-base leading-relaxed mb-4 font-light">
+                <span className="multi_color_heading font-semibold">
+                  Maintenance{" :- "}
+                </span>{" "}
+                Additionally, we ensure regular system upgrades to keep pace
+                with the latest software and version releases.
+              </p>
+              {/* <button className="border gradient-border-button mt-8 text-black font-semibold py-2 px-4 transition duration-300 ease-in-out transform hover:drop-shadow-md uppercase">
+                <Link to="/contacts">Contact Us</Link>
+              </button> */}
             </div>
           </div>
         </div>
