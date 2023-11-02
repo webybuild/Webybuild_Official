@@ -18,7 +18,7 @@ import AddComment from "../components/AddComment";
 import avatars from "../utils/avatars";
 import serviceLogos from "../utils/serviceLogos";
 import fetchData from "../custom_functions/fetchData";
-import SocialSharing from "../components/SocialShare";
+import { InlineShareButtons } from "sharethis-reactjs";
 
 const categoryItem = [
   {
@@ -244,7 +244,34 @@ const BlogDetail = () => {
               <div>
                 <p className="font-light text-sm">What's hot</p>
                 <h1 className="font-semibold text-2xl">Most Popular</h1>
-                <SocialSharing />
+                <InlineShareButtons
+                  config={{
+                    alignment: "center", // alignment of buttons (left, center, right)
+                    color: "social", // set the color of buttons (social, white)
+                    enabled: true, // show/hide buttons (true, false)
+                    font_size: 16, // font size for the buttons
+                    labels: "cta", // button labels (cta, counts, null)
+                    language: "en",
+                    networks: [
+                      "whatsapp",
+                      "linkedin",
+                      "messenger",
+                      "facebook",
+                      "twitter",
+                    ],
+                    padding: 12,
+                    radius: 4,
+                    show_total: true,
+                    size: 40,
+
+                    min_count: 10, // (threshold for total share count to be displayed)
+                    url: "https://aageinc.com", // (defaults to current url)
+                    image:
+                      "https://dl.dropboxusercontent.com/scl/fi/5owd1vjtonyyxgl86cpzx/maxresdefault.jpg?rlkey=rkspp94oe1zj29kkdg6si5kvv&dl=0", // (defaults to og:image or twitter:image)
+                    description: "my title", // (defaults to og:description or twitter:description)
+                    title: "mytitle", // (defaults to og:title or twitter:title)
+                  }}
+                />
               </div>
               {hotBlogs.map((blog, index) => (
                 <div className="mt-8" key={index}>
