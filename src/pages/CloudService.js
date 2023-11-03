@@ -63,7 +63,7 @@ const CloudService = () => {
           five="Our support doesn't end with implementation. We provide ongoing support and optimization to help you get the most out of your cloud services."
           six="With a history of successful cloud implementations, our company has a track record of delivering exceptional results for our clients."
         />
-        <TechStack one={aws} two={azure} three={gcloud} four={hero} />
+        <TechStack one={aws} two={gcloud} three={azure} four={hero} />
         <GetInTouch
           title="Get In Touch"
           para="ARE YOU LOOKING FOR A WEB DEVELOPMENT COMPANY TO MANAGE & EXECUTE A

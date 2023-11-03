@@ -4,7 +4,7 @@ import HeadTitle from "../components/HeadTitle";
 import ServiceFeed from "../components/ServiceFeed";
 import TechStack from "../components/TechStack";
 import GetInTouch from "../components/GetInTouch";
-import react from "../assets/images/inventory/devicon_react.svg";
+import react from "../assets/images/Web-Interface/webdesigntechstack/logos_react.svg";
 import imgOne from "../assets/images/mobileApp/service.png";
 import imgTwo from "../assets/images/mobileApp/whyUs.png";
 

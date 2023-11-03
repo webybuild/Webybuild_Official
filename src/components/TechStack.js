@@ -23,14 +23,24 @@ const TechStack = ({
             Our Tech Stack is Flexible and Reliable
           </h1>
         </div>
-        <div className="flex flex-wrap lg:flex-nowrap justify-center gap-2 lg:gap-8 lg:m-7">
+        <div className="flex flex-wrap lg:flex-nowrap justify-center gap-4 lg:gap-8 lg:m-7">
           {icons.map((icon, index) =>
             typeof icon === "string" && icon.trim() !== "" ? (
               <div
                 key={index}
-                className="w-[30%] lg:w-full flex justify-center items-center"
+                className="lg:w-full flex justify-center items-center mt-4 lg:mt-2"
               >
-                <img src={icon} alt={"icons"} />
+                <img
+                  className={`${
+                    index === 2
+                      ? "w-[1.8rem] lg:w-[3rem]"
+                      : "w-[3rem] lg:w-[5rem]" && index === 5
+                      ? "w-[3.3rem] lg:w-[5.2rem]"
+                      : "w-[3rem] lg:w-[5rem]"
+                  }`}
+                  src={icon}
+                  alt={"icons"}
+                />
               </div>
             ) : null
           )}

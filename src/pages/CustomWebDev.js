@@ -69,9 +69,9 @@ const CustomWebDev = () => {
         <TechStack
           one={ex}
           two={node}
-          three={mongo}
+          eight={mongo}
           four={mysql}
-          five={redis}
+          three={redis}
           six={kafka}
           seven={stripe}
         />

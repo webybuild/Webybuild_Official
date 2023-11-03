@@ -62,7 +62,7 @@ const LogoDesign = () => {
           titleSix="Industry Knowledge"
           six="Our team stays up-to-date with industry trends, ensuring that your logo design is not only visually appealing but also aligned with the latest design practices and market trends."
         />
-        <TechStack one={ai} two={can} three={fig} four={photo} />
+        <TechStack one={ai} two={can} five={fig} four={photo} />
         <GetInTouch
           title="Get In Touch"
           para="ARE YOU LOOKING FOR A WEB DEVELOPMENT COMPANY TO MANAGE & EXECUTE A
