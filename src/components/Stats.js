@@ -35,7 +35,7 @@ const targetStats = [
     symbol: "+",
   },
   {
-    data: 50,
+    data: 12,
     title: "Countries Served",
     symbol: "+",
   },

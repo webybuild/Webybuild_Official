@@ -4,13 +4,19 @@ import TechStack from "../components/TechStack";
 import ServiceFeed from "../components/ServiceFeed";
 import HeadTitle from "../components/HeadTitle";
 import ServiceBanner from "../components/ServiceBanner";
+import aws from "../assets/images/cloud/logos_aws.svg";
+import azure from "../assets/images/cloud/devicon_azure.svg";
+import gcloud from "../assets/images/cloud/devicon_googlecloud.svg";
+import hero from "../assets/images/cloud/devicon_heroku-wordmark.svg";
+import imgOne from "../assets/images/cloud/service.png";
+import imgTwo from "../assets/images/cloud/whyUs.png";
 
 const CloudService = () => {
   return (
     <>
       <section className="">
         <ServiceBanner
-          title="Cloud Service"
+          title="Cloud Infrastructure Management"
           intro="In the digital age, businesses must embrace scalable and secure cloud services to remain competitive and innovative. Webybuild specializes in leveraging industry leaders like Amazon Web Services (AWS) and Microsoft Azure to elevate your business. "
           bread="Cloud Service"
         />
@@ -22,13 +28,13 @@ const CloudService = () => {
           with AWS and Azure Cloud Solutions"
         />
         <ServiceFeed
-          //   img={imgOne}
+          img={imgOne}
           titleOne="AWS Solutions"
           titleTwo="Azure Implementation"
           titleThree="Cloud Migration and Strategy"
           titleFour="Cloud Infrastructure Management"
           titleFive="Data Analytics and Machine Learning"
-          titleSix="Data Analytics and Machine Learning"
+          titleSix="Cloud Security and Compliance"
           one="Amazon Web Services (AWS) is a globally recognized cloud platform known for its vast array of services, from computing and storage to machine learning and artificial intelligence. We'll help you leverage AWS to enhance your infrastructure, applications, and data solutions, ensuring scalability, security, and cost-efficiency."
           two="Microsoft Azure, a trusted cloud provider, offers a wide range of tools and services for building, deploying, and managing applications. Our Azure experts will tailor a solution to meet your specific business requirements, enabling you to scale with confidence and securely operate in the cloud."
           three="Migrating to the cloud can be a complex process. We provide comprehensive cloud migration and strategy services, helping you transition your on-premises systems and applications to the cloud seamlessly. Our strategic approach ensures minimal disruption and maximum ROI."
@@ -43,7 +49,7 @@ const CloudService = () => {
           subTitle="Unlocking Business Potential with Cloud Solutions"
         />
         <ServiceFeed
-          //   img={imgTwo}
+          img={imgTwo}
           titleOne="Certified Experts"
           titleTwo="Tailored Solutions"
           titleThree="Cost Optimization"
@@ -57,17 +63,7 @@ const CloudService = () => {
           five="Our support doesn't end with implementation. We provide ongoing support and optimization to help you get the most out of your cloud services."
           six="With a history of successful cloud implementations, our company has a track record of delivering exceptional results for our clients."
         />
-        <TechStack
-        //   one={mui}
-        //   two={tail}
-        //   three={fig}
-        //   four={boots}
-        //   five={react}
-        //   six={css}
-        //   seven={wopress}
-        //   eight={js}
-        //   nine={jque}
-        />
+        <TechStack one={aws} two={azure} three={gcloud} four={hero} />
         <GetInTouch
           title="Get In Touch"
           para="ARE YOU LOOKING FOR A WEB DEVELOPMENT COMPANY TO MANAGE & EXECUTE A
