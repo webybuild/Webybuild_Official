@@ -101,33 +101,29 @@ const BlogFront = () => {
           </div>
           <div className="flex-1 p-4 sm:p-6 md:p-10 m-4 sm:m-6">
             <div className="flex items-center text-xs sm:text-sm gap-2 sm:gap-3">
-              <p className="font-light flex items-center">2023-09-28</p>
-              <div className=" flex items-center w-2 h-2 bg-red-600 rounded-full"></div>
+              <p className="font-light flex items-center">2023-11-03</p>
+              <div className=" flex items-center w-2 h-2 bg-pink-600 rounded-full"></div>
               <p className="font-semibold uppercase flex items-center">
                 Coding
               </p>
             </div>
             <div>
               <h2 className="text-2xl sm:text-3xl mt-2 sm:mt-4">
-                Why you should do Blogging
+                Hey there, Welcome to Webybuild - Your Web Development Partner
               </h2>
               <p className="mt-2 sm:mt-3 font-light">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Excepturi quod ullam alias sint impedit omnis facere repellat!
-                Eum maiores dolorum vitae cum odit possimus blanditiis nostrum,
-                maxime dolorem excepturi sint iure autem, assumenda laudantium
-                expedita consequuntur at saepe optio fugit, nobis voluptates
-                exercitationem? Eveniet provident saepe iusto, dolorum
-                voluptatem numquam.
+                We're not your average web development company, we're a group of
+                passionate folks who love transforming your ideas into stunning
+                web solutions. With our talented team of developers and
+                designers, we take your vision and turn it into websites that
+                not only look amazing but also perform like champions.
               </p>
               <p className="mt-2 sm:mt-3 font-light">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Excepturi quod ullam alias sint impedit omnis facere repellat!
-                Eum maiores dolorum vitae cum odit possimus blanditiis nostrum,
-                maxime dolorem excepturi sint iure autem, assumenda laudantium
-                expedita consequuntur at saepe optio fugit, nobis voluptates
-                exercitationem? Eveniet provident saepe iusto, dolorum
-                voluptatem numquam.
+                Whether you're dreaming of a stylish portfolio site, a powerful
+                e-commerce platform, or a custom web app, we've got your back.
+                So, have a look at what we offer, and let's embark on a journey
+                to create a web presence that's uniquely yours. Your digital
+                success story starts here.
               </p>
             </div>
           </div>
