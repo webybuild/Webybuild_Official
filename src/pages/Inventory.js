@@ -4,6 +4,15 @@ import HeadTitle from "../components/HeadTitle";
 import ServiceFeed from "../components/ServiceFeed";
 import TechStack from "../components/TechStack";
 import GetInTouch from "../components/GetInTouch";
+import imgOne from "../assets/images/inventory/service.png";
+import imgTwo from "../assets/images/inventory/whyUs.png";
+import mongo from "../assets/images/inventory/devicon_mongodb-wordmark.svg";
+import tailwind from "../assets/images/inventory/devicon_tailwindcss.svg";
+import mui from "../assets/images/inventory/simple-icons_mui.svg";
+import express from "../assets/images/inventory/skill-icons_expressjs-light.svg";
+import node from "../assets/images/inventory/logos_nodejs.svg";
+import post from "../assets/images/inventory/logos_postgresql.svg";
+import react from "../assets/images/inventory/devicon_react.svg";
 
 const Inventory = () => {
   return (
@@ -21,7 +30,7 @@ const Inventory = () => {
           subTitle="Comprehensive Solutions Tailored to Your Business's Success."
         />
         <ServiceFeed
-          //   img={imgOne}
+          img={imgOne}
           titleOne="Inventory Audit and Assessment"
           titleTwo="Inventory Software Solutions"
           titleThree="Demand Forecasting"
@@ -42,7 +51,7 @@ const Inventory = () => {
           subTitle="Elevating Your Business Through Expert Inventory Management Solutions"
         />
         <ServiceFeed
-          //   img={imgTwo}
+          img={imgTwo}
           titleOne="Expertise"
           titleTwo="Tailored Solutions"
           titleThree="Cost Reduction"
@@ -52,20 +61,18 @@ const Inventory = () => {
           one="Our team brings years of experience in inventory management, helping businesses across various industries achieve better control over their inventory."
           two="We recognize that every business is unique. Our solutions are customized to meet your specific inventory management needs and goals."
           three="We focus on reducing carrying costs, eliminating excess stock, and minimizing the risk of stockouts, resulting in significant cost savings."
-          four="We focus on reducing carrying costs, eliminating excess stock, and minimizing the risk of stockouts, resulting in significant cost savings."
+          four="Our solutions streamline your inventory management processes, saving you time and resources, and improving overall operational efficiency."
           five="We provide continuous support, including training and updates, to ensure your inventory management remains efficient and effective."
           six="Harness the power of data analytics to make informed decisions about your inventory, optimizing stock levels and order patterns for improved profitability."
         />
         <TechStack
-        //   one={mui}
-        //   two={tail}
-        //   three={fig}
-        //   four={boots}
-        //   five={react}
-        //   six={css}
-        //   seven={wopress}
-        //   eight={js}
-        //   nine={jque}
+          one={mui}
+          two={tailwind}
+          three={node}
+          four={mongo}
+          five={react}
+          six={post}
+          seven={express}
         />
         <GetInTouch
           title="Get In Touch"

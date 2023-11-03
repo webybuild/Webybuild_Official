@@ -4,6 +4,14 @@ import HeadTitle from "../components/HeadTitle";
 import ServiceFeed from "../components/ServiceFeed";
 import TechStack from "../components/TechStack";
 import GetInTouch from "../components/GetInTouch";
+import trello from "../assets/images/digitalMarketing/logos_trello.svg";
+import canva from "../assets/images/digitalMarketing/devicon_canva.svg";
+import slack from "../assets/images/digitalMarketing/devicon_slack.svg";
+import gooan from "../assets/images/digitalMarketing/logos_google-ads.svg";
+import gooad from "../assets/images/digitalMarketing/logos_google-analytics.svg";
+import mailChimp from "../assets/images/digitalMarketing/logos_mailchimp-freddie.svg";
+import imgOne from "../assets/images/digitalMarketing/service.png";
+import imgTwo from "../assets/images/digitalMarketing/whyUs.png";
 
 const DigitalMarketing = () => {
   return (
@@ -21,7 +29,7 @@ const DigitalMarketing = () => {
           subTitle="Maximizing Online Engagement and Results"
         />
         <ServiceFeed
-          // img={}
+          img={imgOne}
           titleOne="Comprehensive SEO Strategies"
           one="We offer tailored Search Engine Optimization (SEO) solutions to boost your website's visibility on major search engines, driving organic traffic and increasing your online presence."
           titleTwo="Strategic Content Marketing"
@@ -43,7 +51,7 @@ const DigitalMarketing = () => {
           subTitle="Our Advantages, Delivering Excellence in Digital Marketing"
         />
         <ServiceFeed
-          // img={}
+          img={imgTwo}
           titleOne="Proven Track Record"
           one="We have a successful history of helping businesses achieve their digital marketing goals. Our portfolio showcases a diverse range of satisfied clients."
           titleTwo="Dedicated Team of Experts"
@@ -59,15 +67,12 @@ const DigitalMarketing = () => {
         />
 
         <TechStack
-        //   one={mui}
-        //   two={tail}
-        //   three={fig}
-        //   four={boots}
-        //   five={react}
-        //   six={css}
-        //   seven={wopress}
-        //   eight={js}
-        //   nine={jque}
+          one={mailChimp}
+          two={canva}
+          three={slack}
+          four={gooan}
+          five={gooad}
+          six={trello}
         />
         <GetInTouch
           title="Get In Touch"

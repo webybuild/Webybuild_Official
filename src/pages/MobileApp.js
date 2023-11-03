@@ -4,13 +4,16 @@ import HeadTitle from "../components/HeadTitle";
 import ServiceFeed from "../components/ServiceFeed";
 import TechStack from "../components/TechStack";
 import GetInTouch from "../components/GetInTouch";
+import react from "../assets/images/inventory/devicon_react.svg";
+import imgOne from "../assets/images/mobileApp/service.png";
+import imgTwo from "../assets/images/mobileApp/whyUs.png";
 
 const MobileApp = () => {
   return (
     <>
       <section className="">
         <ServiceBanner
-          title="Mobile Application Service"
+          title="Android and Ios Application Service"
           intro="Discover how we harness the potential of React Native to create exceptional mobile applications that span across both iOS and Android platforms, offering you a cost-effective solution for reaching a broader audience while ensuring native-like performance and unique, customized user experiences."
           bread="Mobile Application"
         />
@@ -21,7 +24,7 @@ const MobileApp = () => {
           subTitle="Bringing Your App to iOS and Android, Without Breaking the Bank"
         />
         <ServiceFeed
-          //   img={imgOne}
+          img={imgOne}
           titleOne="Cross-Platform Development"
           titleTwo="Native Performance"
           titleThree="Reusable Code"
@@ -42,7 +45,7 @@ const MobileApp = () => {
           subTitle="Our Commitment to Excellence in React Native Development"
         />
         <ServiceFeed
-          //   img={imgTwo}
+          img={imgTwo}
           titleOne="Proven Expertise"
           titleTwo="Client-Centric Approach"
           titleThree="Timely Delivery"
@@ -56,17 +59,7 @@ const MobileApp = () => {
           five="Our rigorous quality assurance processes guarantee bug-free, high-performance applications. Your users will enjoy a smooth and reliable experience."
           six="Our relationship doesn't end with app deployment. We offer post-launch support, ensuring that your app remains up to date, secure, and continuously improved based on user feedback and emerging trends."
         />
-        <TechStack
-        //   one={mui}
-        //   two={tail}
-        //   three={fig}
-        //   four={boots}
-        //   five={react}
-        //   six={css}
-        //   seven={wopress}
-        //   eight={js}
-        //   nine={jque}
-        />
+        <TechStack five={react} />
         <GetInTouch
           title="Get In Touch"
           para="ARE YOU LOOKING FOR A WEB DEVELOPMENT COMPANY TO MANAGE & EXECUTE A

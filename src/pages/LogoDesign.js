@@ -4,13 +4,19 @@ import HeadTitle from "../components/HeadTitle";
 import ServiceFeed from "../components/ServiceFeed";
 import TechStack from "../components/TechStack";
 import GetInTouch from "../components/GetInTouch";
+import imgOne from "../assets/images/logoDesign/service.png";
+import imgTwo from "../assets/images/logoDesign/whyUs.png";
+import ai from "../assets/images/logoDesign/logos_adobe-illustrator.svg";
+import can from "../assets/images/logoDesign/devicon_canva.svg";
+import fig from "../assets/images/logoDesign/skill-icons_figma-light.svg";
+import photo from "../assets/images/logoDesign/skill-icons_photoshop.svg";
 
 const LogoDesign = () => {
   return (
     <>
       <section className="">
         <ServiceBanner
-          title="Logo Design Service"
+          title="Custom Logo Design Service"
           intro="We prioritize your vision and bring it to life, ensuring your logo leaves a lasting impression in a competitive market. Whether you seek innovation, proven expertise, or client-centered collaboration, we're your partner in logo design excellence."
           bread="Logo Design Service"
         />
@@ -21,7 +27,7 @@ const LogoDesign = () => {
           subTitle="Crafting Your Unique Logo, Professional Design, Unlimited Revisions, and Affordable Pricing"
         />
         <ServiceFeed
-          // img={}
+          img={imgOne}
           titleOne="Custom Logo Design"
           one="We create unique and tailor-made logos that represent your brand's identity and values. Your logo will stand out in the market and leave a lasting impression."
           titleTwo="Professional Designers"
@@ -42,7 +48,7 @@ const LogoDesign = () => {
           subTitle="Connected Creation, Collaborating for the Perfect Logo"
         />
         <ServiceFeed
-          // img={}
+          img={imgTwo}
           titleOne="Client-Centric Approach"
           one="We prioritize your needs and ideas. Your vision is our starting point, and we work closely with you to create a logo that perfectly encapsulates your brand."
           titleTwo="Proven Track Record"
@@ -56,17 +62,7 @@ const LogoDesign = () => {
           titleSix="Industry Knowledge"
           six="Our team stays up-to-date with industry trends, ensuring that your logo design is not only visually appealing but also aligned with the latest design practices and market trends."
         />
-        <TechStack
-        //   one={mui}
-        //   two={tail}
-        //   three={fig}
-        //   four={boots}
-        //   five={react}
-        //   six={css}
-        //   seven={wopress}
-        //   eight={js}
-        //   nine={jque}
-        />
+        <TechStack one={ai} two={can} three={fig} four={photo} />
         <GetInTouch
           title="Get In Touch"
           para="ARE YOU LOOKING FOR A WEB DEVELOPMENT COMPANY TO MANAGE & EXECUTE A
