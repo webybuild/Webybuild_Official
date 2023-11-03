@@ -69,7 +69,7 @@ const DigitalMarketing = () => {
         <TechStack
           one={mailChimp}
           two={canva}
-          three={slack}
+          seven={slack}
           four={gooan}
           five={gooad}
           six={trello}

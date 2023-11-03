@@ -76,7 +76,7 @@ const Contacts = () => {
       <section className="bg-white mt-16 px-6 lg:px-16">
         <div className="flex gap-4 lg:gap-16 flex-col lg:flex-row">
           <div className="flex-1">
-            <p className="text-[10px] md:text-sm text-black bg-white flex justify-center items-center font-bold">
+            <p className="text-[10px] md:text-sm text-black flex justify-center items-center font-bold">
               Home /{" "}
               <span className="text-white bg-[#7c44af] px-2 py-1 rounded text-[10px] md:text-sm ml-2">
                 {" "}

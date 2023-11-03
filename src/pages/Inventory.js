@@ -68,7 +68,7 @@ const Inventory = () => {
         <TechStack
           one={mui}
           two={tailwind}
-          three={node}
+          eight={node}
           four={mongo}
           five={react}
           six={post}
