@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import manifest from "../assets/images/portfolio/manifest.svg";
 import desginfirm from "../assets/images/portfolio/designFirms.svg";
@@ -70,6 +71,30 @@ const Contacts = () => {
       );
     }
   }
+
+  const jsForm = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_5zf2ywi",
+        "template_hqkompe",
+        "#contact-form",
+        "QhQMFueRd5IbBP3MZ"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          console.log("message sent");
+        },
+        (error) => {
+          console.log(error.text);
+          console.log("message not sent");
+        }
+      );
+  };
 
   return (
     <>
@@ -224,7 +249,13 @@ const Contacts = () => {
               Got a technical issue? Want to send feedback about our service?
               Need details about our Business plan? Let us know.
             </p>
-            <form action="#" className="space-y-8">
+            <form
+              id="contact-form"
+              action="#"
+              ref={jsForm}
+              onSubmit={sendEmail}
+              className="space-y-8"
+            >
               <div className="flex w-full gap-8">
                 <div className="w-full">
                   <label
@@ -392,12 +423,14 @@ const Contacts = () => {
               </div>
               <div>{message}</div>
               <div className="items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
-                <span
+                <button
                   onClick={() => contact()}
+                  type="submit"
+                  value="Send"
                   className="block cursor-pointer py-2 px-4 text-black border font-medium gradient-border-button  hover:shadow-lg text-center lg:text-left"
                 >
                   Send Message
-                </span>
+                </button>
                 <a
                   className="block py-2 px-4 text-gray-700 hover:text-gray-500 font-medium duration-150 active:bg-gray-100 border text-center lg:text-left"
                   href="https://wa.me/918809867438"
